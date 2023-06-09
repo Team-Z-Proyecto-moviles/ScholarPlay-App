@@ -19,6 +19,17 @@ class RegisterViewModel(private val repository: CredentialsRepository) : ViewMod
     var email = MutableLiveData("")
     var password = MutableLiveData("")
     var confirmpassword = MutableLiveData("")
+    var ocupation = MutableLiveData("")
+
+    fun getOccupation(position: Int){
+       if(position == 0){
+           ocupation.value = "student"
+       }
+
+        if (position == 1){
+            ocupation.value = "teacher"
+        }
+    }
 
     private val _status = MutableLiveData<RegisterUiStatus>(RegisterUiStatus.Resume)
     val status: LiveData<RegisterUiStatus>
@@ -36,13 +47,34 @@ class RegisterViewModel(private val repository: CredentialsRepository) : ViewMod
         }
     }
 
+    private fun registerTeacher(name: String, email: String, password: String){
+        viewModelScope.launch {
+            _status.postValue(
+                when(val response = repository.registerTeacher(name, email, password)){
+                    is ApiResponse.Error -> RegisterUiStatus.Error(response.exception)
+                    is ApiResponse.ErrorWithMessege -> RegisterUiStatus.ErrorWithMessage(response.messege)
+                    is ApiResponse.Succes -> RegisterUiStatus.Success
+                }
+            )
+        }
+    }
+
     fun onRegister() {
         if (!validateData()) {
             _status.value = RegisterUiStatus.ErrorWithMessage("Wrong information")
             return
         }
 
-        register(name.value!!, email.value!!, password.value!!)
+        if(ocupation.value == "student"){
+            register(name.value!!, email.value!!, password.value!!)
+        }
+
+        if (ocupation.value == "teacher"){
+            registerTeacher(name.value!!,email.value!!,password.value!!)
+        }
+
+
+
         }
 
 
@@ -69,7 +101,10 @@ class RegisterViewModel(private val repository: CredentialsRepository) : ViewMod
         password.value = ""
         confirmpassword.value =""
 
+
     }
+
+
 
     companion object {
         val Factory = viewModelFactory {
