@@ -10,4 +10,7 @@
     <string name="register_instruction">Create an account to get started!</string>
     <string name="name_label">Name</string>
     <string name="occupation_question">What will you be using ScholarPlay for?</string>
+    <string name="register_label">Register</string>
+    <string name="create_account_label">Already have an account? Login now</string>
+    <string name="confirm_password_label">Confirm password</string>
 </resources>

@@ -11,9 +11,21 @@
         <action
             android:id="@+id/action_loginFragment3_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_loginFragment3_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment2"
         android:name="com.example.scholarplay.ui.homepage.HomeFragment"
         android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.scholarplay.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment3"
+            app:destination="@id/loginFragment3" />
+    </fragment>
 </navigation>

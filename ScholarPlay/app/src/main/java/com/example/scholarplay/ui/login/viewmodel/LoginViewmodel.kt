@@ -17,6 +17,7 @@ class LoginViewmodel (private val repository: CredentialsRepository): ViewModel(
     var email = MutableLiveData("")
     var password = MutableLiveData("")
 
+
     private val _status = MutableLiveData<LoginUiStatus>(LoginUiStatus.Resume)
     val status: MutableLiveData<LoginUiStatus>
         get() = _status
@@ -45,6 +46,7 @@ class LoginViewmodel (private val repository: CredentialsRepository): ViewModel(
         when {
             email.value.isNullOrEmpty() -> return false
             password.value.isNullOrEmpty() -> return false
+
         }
 
         return true

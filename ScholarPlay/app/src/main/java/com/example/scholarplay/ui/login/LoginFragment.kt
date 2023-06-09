@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
@@ -39,6 +40,10 @@ class LoginFragment : Fragment() {
 
         setViewModel()
         observeStatus()
+
+        binding.createAccountTextView.setOnClickListener {
+            it.findNavController().navigate(R.id.action_loginFragment3_to_registerFragment)
+        }
 
     }
 
