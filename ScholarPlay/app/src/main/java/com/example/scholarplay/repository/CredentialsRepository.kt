@@ -30,8 +30,22 @@ class CredentialsRepository(private val api: AuthService) {
             return ApiResponse.Succes(response.message)
 
         }catch (e: HttpException){
-            if (e.code() == 400){
-                return ApiResponse.ErrorWithMessege("Invalid data")
+            if (e.code() == 404){
+                return ApiResponse.ErrorWithMessege("Student doesn't exists")
+            }
+            return ApiResponse.Error(e)
+        } catch (e: IOException){
+            return ApiResponse.Error(e)
+        }
+    }
+
+    suspend fun registerTeacher(name: String, email: String, password: String): ApiResponse<String>{
+        try {
+            val response = api.registerTeacher(RegisterRequest(name,email,password))
+            return ApiResponse.Succes(response.message)
+        }catch (e: HttpException){
+            if (e.code() == 404){
+                return ApiResponse.ErrorWithMessege("Teacher doesn't exist")
             }
             return ApiResponse.Error(e)
         } catch (e: IOException){

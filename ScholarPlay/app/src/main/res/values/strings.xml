@@ -13,4 +13,11 @@
     <string name="register_label">Register</string>
     <string name="create_account_label">Already have an account? Login now</string>
     <string name="confirm_password_label">Confirm password</string>
+    <string name="student_label">Student</string>
+    <string name="teacher_label">Teacher</string>
+
+    <string-array name="ocuupations_arrat">
+        <item>Student</item>
+        <item>Teacher</item>
+    </string-array>
 </resources>

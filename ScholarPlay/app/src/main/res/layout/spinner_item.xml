@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:background="@color/bluegray"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/medium_gap"
+    android:paddingEnd="@dimen/medium_gap"
+    android:textColor="@color/black"
+    android:textSize="14sp"
+    android:paddingVertical="@dimen/medium_gap"
+    android:fontFamily="@font/urbanist_medium"/>
