@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
-
+    app:startDestination="@id/loginFragment3">
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/loginFragment3"
+        android:name="com.example.scholarplay.ui.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment3_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment2"
         android:name="com.example.scholarplay.ui.homepage.HomeFragment"
         android:label="HomeFragment" />
 </navigation>

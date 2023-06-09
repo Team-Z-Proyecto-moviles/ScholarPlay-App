@@ -3,7 +3,7 @@ buildscript {
     ext {
        lifecycle_version = "2.6.1"
         arch_version = "2.2.0"
-        activity_version = "1.6.1"
+        activity_version = '1.7.2'
         fragment_version = "1.5.7"
         nav_version = "2.5.3"
 
