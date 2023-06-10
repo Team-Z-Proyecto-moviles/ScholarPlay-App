@@ -24,9 +24,9 @@ class CredentialsRepository(private val api: AuthService) {
         }
     }
 
-    suspend fun register(name: String, email: String, password: String) : ApiResponse<String>{
+    suspend fun register(name: String, email: String, password: String, status: String) : ApiResponse<String>{
         try {
-            val response = api.registerStudent(RegisterRequest(name, email, password))
+            val response = api.registerStudent(RegisterRequest(name, email, password, status))
             return ApiResponse.Succes(response.message)
 
         }catch (e: HttpException){
@@ -39,9 +39,9 @@ class CredentialsRepository(private val api: AuthService) {
         }
     }
 
-    suspend fun registerTeacher(name: String, email: String, password: String): ApiResponse<String>{
+    suspend fun registerTeacher(name: String, email: String, password: String, status: String): ApiResponse<String>{
         try {
-            val response = api.registerTeacher(RegisterRequest(name,email,password))
+            val response = api.registerTeacher(RegisterRequest(name,email,password,status))
             return ApiResponse.Succes(response.message)
         }catch (e: HttpException){
             if (e.code() == 404){
