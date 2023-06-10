@@ -1,5 +1,7 @@
 package com.example.scholarplay.repository
 
+import android.util.Log
+import androidx.startup.AppInitializer
 import com.example.scholarplay.network.ApiResponse
 import com.example.scholarplay.network.dto.login.LoginRequest
 import com.example.scholarplay.network.dto.register.RegisterRequest
@@ -49,6 +51,20 @@ class CredentialsRepository(private val api: AuthService) {
             }
             return ApiResponse.Error(e)
         } catch (e: IOException){
+            return ApiResponse.Error(e)
+        }
+    }
+
+    suspend fun getStatus(token: String) : ApiResponse<String>{
+        try {
+            val response = api.getStatus(token)
+            return ApiResponse.Succes(response.status)
+        } catch (e: HttpException){
+            if (e.code() == 404){
+                return ApiResponse.ErrorWithMessege("User not found")
+            }
+            return ApiResponse.Error(e)
+        }catch (e: IOException){
             return ApiResponse.Error(e)
         }
     }

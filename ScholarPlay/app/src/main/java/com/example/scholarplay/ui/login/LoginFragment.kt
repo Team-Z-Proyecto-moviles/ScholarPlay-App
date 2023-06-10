@@ -57,6 +57,7 @@ class LoginFragment : Fragment() {
         }
     }
 
+
     private fun handleUiStatus(status: LoginUiStatus) {
         when(status) {
             is LoginUiStatus.Error -> {
@@ -72,7 +73,20 @@ class LoginFragment : Fragment() {
                 loginViewmodel.clearStatus()
                 loginViewmodel.clearData()
                 app.saveAuthToken(status.token)
-                findNavController().navigate(R.id.action_loginFragment3_to_homeFragment2)
+                loginViewmodel.getStatus(status.token)
+            }
+
+            is LoginUiStatus.Succes2 -> {
+                loginViewmodel.clearStatus()
+                app.saveStatus(status.status)
+
+                if (status.status == "student"){
+                    findNavController().navigate(R.id.action_loginFragment3_to_homeFragment2)
+                }
+
+                if (status.status == "teacher"){
+                    findNavController().navigate(R.id.action_loginFragment3_to_teacherHomeFragment)
+                }
             }
 
             else -> {}

@@ -1,4 +1,4 @@
-package com.example.scholarplay.ui.homepage
+package com.example.scholarplay.ui.homepage.student
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,10 +9,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
 import com.example.scholarplay.databinding.FragmentHomeBinding
+import com.example.scholarplay.repository.CredentialsRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class HomeFragment : Fragment() {
-
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -35,11 +38,16 @@ class HomeFragment : Fragment() {
         setTokenOnView()
 
         binding.recyclerviewClasses.layoutManager = GridLayoutManager(view.context,2)
+
     }
 
     private fun setTokenOnView() {
         val tokenValue = app.getToken()
         binding.tokenTextView.text = tokenValue
     }
+
+
+
+
 
 }

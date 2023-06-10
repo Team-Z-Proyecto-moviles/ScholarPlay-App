@@ -9,9 +9,14 @@ const val BASE_URL = "https://scholarplay-api-production.up.railway.app/"
 
 object RetrofitInstance {
     private var token = ""
+    private var status = ""
 
     fun setToken(token: String){
         this.token = token
+    }
+
+    fun setStatus(status: String){
+        this.status = status
     }
 
     private val retrofit = Retrofit.Builder()
