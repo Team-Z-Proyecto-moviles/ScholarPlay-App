@@ -18,6 +18,8 @@ class ScholarPlayApplication : Application() {
 
     fun getToken(): String = prefs.getString(USER_TOKEN,"")!!
 
+    fun getStatus(): String = prefs.getString(USER_STATUS,"")!!
+
     val credentialsRepository: CredentialsRepository by lazy {
         CredentialsRepository(getAPIService())
     }
@@ -28,9 +30,16 @@ class ScholarPlayApplication : Application() {
         editor.apply()
     }
 
+    fun saveStatus(status: String) {
+        val editor = prefs.edit()
+        editor.putString(USER_STATUS, status)
+        editor.apply()
+    }
+
 
 
     companion object{
         const val USER_TOKEN = "user_token"
+        const val USER_STATUS = "user_status"
     }
 }

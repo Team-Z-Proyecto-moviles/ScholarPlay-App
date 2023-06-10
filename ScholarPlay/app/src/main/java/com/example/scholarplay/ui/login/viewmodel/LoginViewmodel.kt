@@ -22,6 +22,19 @@ class LoginViewmodel (private val repository: CredentialsRepository): ViewModel(
     val status: MutableLiveData<LoginUiStatus>
         get() = _status
 
+    fun getStatus(token: String){
+        viewModelScope.launch {
+            _status.postValue(
+                when(val response = repository.getStatus(token)){
+                    is ApiResponse.Error -> LoginUiStatus.Error(response.exception)
+                    is ApiResponse.ErrorWithMessege -> LoginUiStatus.ErrorWithMessage(response.messege)
+                    is ApiResponse.Succes -> LoginUiStatus.Succes2(response.data)
+                }
+            )
+        }
+    }
+
+
     private fun login(email: String, password: String) {
         viewModelScope.launch {
             _status.postValue(
@@ -60,6 +73,9 @@ class LoginViewmodel (private val repository: CredentialsRepository): ViewModel(
     fun clearStatus() {
         _status.value = LoginUiStatus.Resume
     }
+
+
+
 
     companion object {
         val Factory = viewModelFactory {

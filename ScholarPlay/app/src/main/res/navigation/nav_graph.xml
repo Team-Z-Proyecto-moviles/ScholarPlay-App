@@ -14,10 +14,13 @@
         <action
             android:id="@+id/action_loginFragment3_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment3_to_teacherHomeFragment"
+            app:destination="@id/teacherHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.example.scholarplay.ui.homepage.HomeFragment"
+        android:name="com.example.scholarplay.ui.homepage.student.HomeFragment"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/registerFragment"
@@ -28,4 +31,8 @@
             android:id="@+id/action_registerFragment_to_loginFragment3"
             app:destination="@id/loginFragment3" />
     </fragment>
+    <fragment
+        android:id="@+id/teacherHomeFragment"
+        android:name="com.example.scholarplay.ui.homepage.teacher.TeacherHomeFragment"
+        android:label="TeacherHomeFragment" />
 </navigation>
