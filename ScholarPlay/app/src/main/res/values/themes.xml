@@ -2,7 +2,11 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ScholarPlay" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/buttoncolor</item>
-        
+
+    </style>
+    
+    <style name="SplashTheme" parent="Theme.SplashScreen">
+        <item name="android:windowBackground">@drawable/splash_screem</item>
     </style>
 
     <style name="Theme.ScholarPlay" parent="Base.Theme.ScholarPlay" />
