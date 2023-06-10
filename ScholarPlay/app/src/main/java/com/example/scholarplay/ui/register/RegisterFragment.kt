@@ -85,7 +85,7 @@ class RegisterFragment : Fragment() {
         binding.occupationSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 registerViewModel.getOccupation(p2)
-                Log.d(p2.toString(),"AAAPLIS")
+                
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {

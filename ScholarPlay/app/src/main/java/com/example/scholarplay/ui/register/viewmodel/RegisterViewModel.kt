@@ -35,10 +35,10 @@ class RegisterViewModel(private val repository: CredentialsRepository) : ViewMod
     val status: LiveData<RegisterUiStatus>
         get() = _status
 
-    private fun register(name: String, email: String, password: String) {
+    private fun register(name: String, email: String, password: String, status: String) {
         viewModelScope.launch {
             _status.postValue(
-                when(val response = repository.register(name, email, password)){
+                when(val response = repository.register(name, email, password, status)){
                     is ApiResponse.Error -> RegisterUiStatus.Error(response.exception)
                     is ApiResponse.ErrorWithMessege -> RegisterUiStatus.ErrorWithMessage(response.messege)
                     is ApiResponse.Succes -> RegisterUiStatus.Success
@@ -47,10 +47,10 @@ class RegisterViewModel(private val repository: CredentialsRepository) : ViewMod
         }
     }
 
-    private fun registerTeacher(name: String, email: String, password: String){
+    private fun registerTeacher(name: String, email: String, password: String, status: String){
         viewModelScope.launch {
             _status.postValue(
-                when(val response = repository.registerTeacher(name, email, password)){
+                when(val response = repository.registerTeacher(name, email, password, status)){
                     is ApiResponse.Error -> RegisterUiStatus.Error(response.exception)
                     is ApiResponse.ErrorWithMessege -> RegisterUiStatus.ErrorWithMessage(response.messege)
                     is ApiResponse.Succes -> RegisterUiStatus.Success
@@ -66,11 +66,11 @@ class RegisterViewModel(private val repository: CredentialsRepository) : ViewMod
         }
 
         if(ocupation.value == "student"){
-            register(name.value!!, email.value!!, password.value!!)
+            register(name.value!!, email.value!!, password.value!!, ocupation.value!!)
         }
 
         if (ocupation.value == "teacher"){
-            registerTeacher(name.value!!,email.value!!,password.value!!)
+            registerTeacher(name.value!!,email.value!!,password.value!!, ocupation.value!!)
         }
 
 
