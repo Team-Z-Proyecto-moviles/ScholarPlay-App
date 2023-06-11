@@ -9,6 +9,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.scholarplay.ScholarPlayApplication
 import com.example.scholarplay.network.ApiResponse
+import com.example.scholarplay.network.ApiUserResponse
 import com.example.scholarplay.repository.CredentialsRepository
 import com.example.scholarplay.ui.login.LoginUiStatus
 import kotlinx.coroutines.launch
@@ -22,13 +23,15 @@ class LoginViewmodel (private val repository: CredentialsRepository): ViewModel(
     val status: MutableLiveData<LoginUiStatus>
         get() = _status
 
-    fun getStatus(token: String){
+    fun getUser(token: String){
         viewModelScope.launch {
             _status.postValue(
-                when(val response = repository.getStatus(token)){
-                    is ApiResponse.Error -> LoginUiStatus.Error(response.exception)
-                    is ApiResponse.ErrorWithMessege -> LoginUiStatus.ErrorWithMessage(response.messege)
-                    is ApiResponse.Succes -> LoginUiStatus.Succes2(response.data)
+                when(val response = repository.getUserData(token)){
+                    is ApiUserResponse.Error -> LoginUiStatus.Error(response.exception)
+                    is ApiUserResponse.ErrorWithMessege -> LoginUiStatus.ErrorWithMessage(response.messege)
+                    is ApiUserResponse.Success -> LoginUiStatus.Succes2(response.data)
+
+
                 }
             )
         }

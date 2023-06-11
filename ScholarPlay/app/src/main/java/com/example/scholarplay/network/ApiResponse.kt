@@ -1,5 +1,6 @@
 package com.example.scholarplay.network
 
+import com.example.scholarplay.network.dto.user.UserResponse
 import java.lang.Exception
 
 sealed class ApiResponse<T>{
