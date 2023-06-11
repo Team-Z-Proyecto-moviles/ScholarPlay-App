@@ -13,6 +13,7 @@ class ScholarPlayApplication : Application() {
 
     private fun getAPIService() = with(RetrofitInstance) {
         setToken(getToken())
+        setStatus(getStatus())
         getLoginService()
     }
 
@@ -30,7 +31,7 @@ class ScholarPlayApplication : Application() {
         editor.apply()
     }
 
-    fun saveStatus(status: String) {
+    fun saveId(status: String) {
         val editor = prefs.edit()
         editor.putString(USER_STATUS, status)
         editor.apply()

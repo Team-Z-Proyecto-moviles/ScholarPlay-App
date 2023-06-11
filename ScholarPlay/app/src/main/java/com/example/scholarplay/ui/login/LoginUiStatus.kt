@@ -1,5 +1,6 @@
 package com.example.scholarplay.ui.login
 
+import com.example.scholarplay.network.dto.user.UserResponse
 import java.lang.Exception
 
 sealed class LoginUiStatus {
@@ -8,5 +9,5 @@ sealed class LoginUiStatus {
     data class ErrorWithMessage(val message: String) : LoginUiStatus()
     data class Success(val token: String) : LoginUiStatus()
 
-    data class  Succes2(val status: String) : LoginUiStatus()
+    data class  Succes2(val user_data: UserResponse) : LoginUiStatus()
 }

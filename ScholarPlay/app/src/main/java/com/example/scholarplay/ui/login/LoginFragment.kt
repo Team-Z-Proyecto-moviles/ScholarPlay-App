@@ -58,33 +58,33 @@ class LoginFragment : Fragment() {
     }
 
 
-    private fun handleUiStatus(status: LoginUiStatus) {
-        when(status) {
+    private fun handleUiStatus(uiStatus: LoginUiStatus) {
+        when(uiStatus) {
             is LoginUiStatus.Error -> {
                 Toast.makeText(requireContext(), "An error has ocurred", Toast.LENGTH_SHORT).show()
             }
 
             is LoginUiStatus.ErrorWithMessage -> {
-                Toast.makeText(requireContext(), status.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), uiStatus.message, Toast.LENGTH_SHORT).show()
 
             }
 
             is LoginUiStatus.Success -> {
                 loginViewmodel.clearStatus()
                 loginViewmodel.clearData()
-                app.saveAuthToken(status.token)
-                loginViewmodel.getStatus(status.token)
+                app.saveAuthToken(uiStatus.token)
+                loginViewmodel.getUser(uiStatus.token)
             }
 
             is LoginUiStatus.Succes2 -> {
                 loginViewmodel.clearStatus()
-                app.saveStatus(status.status)
+                app.saveId(uiStatus.user_data.user.id)
 
-                if (status.status == "student"){
+                if (uiStatus.user_data.user.status == "student"){
                     findNavController().navigate(R.id.action_loginFragment3_to_homeFragment2)
                 }
 
-                if (status.status == "teacher"){
+                if (uiStatus.user_data.user.status == "teacher"){
                     findNavController().navigate(R.id.action_loginFragment3_to_teacherHomeFragment)
                 }
             }
