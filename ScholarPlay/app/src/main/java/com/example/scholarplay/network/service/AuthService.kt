@@ -1,5 +1,6 @@
 package com.example.scholarplay.network.service
 
+import com.example.scholarplay.network.dto.classroom.ClassRoomResponse
 import com.example.scholarplay.network.dto.login.LoginRequest
 import com.example.scholarplay.network.dto.login.LoginResponse
 import com.example.scholarplay.network.dto.register.RegisterRequest
@@ -23,4 +24,7 @@ interface AuthService {
 
     @GET("api/auth/find/alldata/user/{token}")
     suspend fun getUser(@Path("token") token: String):UserResponse
+
+    @GET("https://scholarplay-api-production.up.railway.app/api/classroom/students/classrooms/{user}")
+    suspend fun getClassRoom(@Path("user") user: String): ClassRoomResponse
 }

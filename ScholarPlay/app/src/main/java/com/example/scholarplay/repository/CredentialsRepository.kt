@@ -61,7 +61,6 @@ class CredentialsRepository(private val api: AuthService) {
     suspend fun getUserData(token: String) : ApiUserResponse<UserResponse>{
         try {
             val response = api.getUser(token)
-            Log.d(response.user.status, "AAAA1")
             return ApiUserResponse.Success(response)
         }catch (e: HttpException){
             if (e.code() == 404){
