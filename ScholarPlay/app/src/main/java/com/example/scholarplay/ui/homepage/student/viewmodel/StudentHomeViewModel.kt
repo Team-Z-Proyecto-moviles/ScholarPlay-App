@@ -9,11 +9,12 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.scholarplay.ScholarPlayApplication
 import com.example.scholarplay.data.models.ClassModel
+import com.example.scholarplay.network.dto.classroom.ClassRoomResponse
 import com.example.scholarplay.repository.ClassRoomRepository
 import kotlinx.coroutines.launch
 
 class StudentHomeViewModel(private val repository: ClassRoomRepository): ViewModel() {
-    val classrooms = MutableLiveData<List<ClassModel>>()
+    var classrooms = MutableLiveData<List<ClassModel>>()
 
     fun getClassRooms(user: String) {
 
@@ -21,6 +22,7 @@ class StudentHomeViewModel(private val repository: ClassRoomRepository): ViewMod
         val response = repository.getClassRooms(user)
             classrooms.value = response.classroom
         }
+
     }
 
 

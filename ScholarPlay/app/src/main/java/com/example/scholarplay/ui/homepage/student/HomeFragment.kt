@@ -12,6 +12,7 @@ import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
 import com.example.scholarplay.databinding.FragmentHomeBinding
 import com.example.scholarplay.repository.CredentialsRepository
+import com.example.scholarplay.ui.homepage.student.recyclerview.StudentHomePageAdapter
 import com.example.scholarplay.ui.homepage.student.viewmodel.StudentHomeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,17 +46,29 @@ class HomeFragment : Fragment() {
         val idStudent = app.getId()
 
         studentHomeViewModel.getClassRooms(idStudent)
+        binding.recyclerviewClasses.layoutManager = GridLayoutManager(view.context,2)
+
+        val adapter = StudentHomePageAdapter()
+
+        binding.recyclerviewClasses.adapter = adapter
 
         studentHomeViewModel.classrooms.observe(viewLifecycleOwner){
-            Log.d("Classrooms", it.toString())
+            adapter.setData(it)
+            Log.d("AAA!!", it.toString())
         }
+       /* binding.recyclerviewClasses.layoutManager = GridLayoutManager(view.context,2)
+        val adapter = StudentHomePageAdapter()
+
+        binding.recyclerviewClasses.adapter = adapter
+
+        adapter.setData(studentHomeViewModel.getClassRooms(idStudent))*/
 
 
         setTokenOnView()
 
 
 
-        binding.recyclerviewClasses.layoutManager = GridLayoutManager(view.context,2)
+
 
     }
 
