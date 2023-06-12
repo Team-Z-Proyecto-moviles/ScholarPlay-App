@@ -10,6 +10,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface AuthService {
 
@@ -25,6 +26,8 @@ interface AuthService {
     @GET("api/auth/find/alldata/user/{token}")
     suspend fun getUser(@Path("token") token: String):UserResponse
 
-    @GET("https://scholarplay-api-production.up.railway.app/api/classroom/students/classrooms/{user}")
-    suspend fun getClassRoom(@Path("user") user: String): ClassRoomResponse
+    @GET("api/classroom/students/classrooms/{user}")
+    suspend fun getClassRoom(
+        @Path("user") user: String,
+        @Query("limit") limit: Int): ClassRoomResponse
 }

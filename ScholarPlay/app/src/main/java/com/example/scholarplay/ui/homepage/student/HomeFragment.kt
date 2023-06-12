@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
+import com.example.scholarplay.data.models.ClassModel
 import com.example.scholarplay.databinding.FragmentHomeBinding
 import com.example.scholarplay.repository.CredentialsRepository
 import com.example.scholarplay.ui.homepage.student.recyclerview.StudentHomePageAdapter
@@ -48,7 +49,10 @@ class HomeFragment : Fragment() {
         studentHomeViewModel.getClassRooms(idStudent)
         binding.recyclerviewClasses.layoutManager = GridLayoutManager(view.context,2)
 
-        val adapter = StudentHomePageAdapter()
+        val adapter = StudentHomePageAdapter { selectedClass ->
+            showSelected(selectedClass)
+
+        }
 
         binding.recyclerviewClasses.adapter = adapter
 
@@ -75,6 +79,10 @@ class HomeFragment : Fragment() {
     private fun setTokenOnView() {
         val tokenValue = app.getToken()
         binding.tokenTextView.text = tokenValue
+    }
+
+    private fun showSelected(classRoom: ClassModel){
+        studentHomeViewModel.setSelectedClass(classRoom)
     }
 
 

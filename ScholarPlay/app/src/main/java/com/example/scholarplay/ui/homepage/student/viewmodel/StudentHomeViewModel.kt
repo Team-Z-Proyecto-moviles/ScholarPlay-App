@@ -25,6 +25,9 @@ class StudentHomeViewModel(private val repository: ClassRoomRepository): ViewMod
 
     }
 
+    fun setSelectedClass(classRoom: ClassModel){
+    }
+
 
 
     companion object{
