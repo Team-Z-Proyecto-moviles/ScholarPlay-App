@@ -25,7 +25,12 @@
     <fragment
         android:id="@+id/homeFragment2"
         android:name="com.example.scholarplay.ui.homepage.student.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment2_to_joinAClassFragment"
+            app:destination="@id/joinAClassFragment"
+            app:enterAnim="@anim/slide_in_up" />
+    </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.scholarplay.ui.register.RegisterFragment"
@@ -43,4 +48,9 @@
         android:id="@+id/teacherHomeFragment"
         android:name="com.example.scholarplay.ui.homepage.teacher.TeacherHomeFragment"
         android:label="TeacherHomeFragment" />
+    <fragment
+        android:id="@+id/joinAClassFragment"
+        android:name="com.example.scholarplay.ui.joinclass.JoinAClassFragment"
+        android:label="fragment_join_a_class"
+        tools:layout="@layout/fragment_join_a_class" />
 </navigation>
