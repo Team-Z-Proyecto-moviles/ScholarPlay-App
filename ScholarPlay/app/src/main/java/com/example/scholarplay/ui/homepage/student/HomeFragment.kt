@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
 import com.example.scholarplay.databinding.FragmentHomeBinding
 import com.example.scholarplay.ui.homepage.student.recyclerview.StudentClassRoomAdapter
@@ -67,6 +69,11 @@ class HomeFragment : Fragment() {
         }
 
         rv.adapter = adapter
+
+
+        binding.floatingActionButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_homeFragment2_to_joinAClassFragment)
+        }
 
 
 
