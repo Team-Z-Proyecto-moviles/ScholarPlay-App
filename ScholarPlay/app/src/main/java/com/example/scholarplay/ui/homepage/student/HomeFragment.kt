@@ -48,8 +48,10 @@ class HomeFragment : Fragment() {
 
         val adapter = StudentClassRoomAdapter(StudentClassRoomAdapter.ClassRoomComparator)
 
+        val userValue = app.getId()
+
         lifecycleScope.launch {
-            studentHomeViewModel.classRooms.collectLatest { data ->
+            studentHomeViewModel.getClassRoom(userValue).collectLatest { data ->
                 adapter.submitData(data)
             }
         }

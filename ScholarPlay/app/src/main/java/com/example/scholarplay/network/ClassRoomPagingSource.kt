@@ -7,7 +7,7 @@ import com.example.scholarplay.network.service.AuthService
 import retrofit2.HttpException
 import java.io.IOException
 
-class ClassRoomPagingSource(private val service: AuthService):PagingSource<Int,ClassModel>() {
+class ClassRoomPagingSource(private val service: AuthService, private val user: String):PagingSource<Int,ClassModel>() {
 
     override fun getRefreshKey(state: PagingState<Int, ClassModel>): Int? {
         val pageSize = state.config.pageSize
@@ -22,9 +22,12 @@ class ClassRoomPagingSource(private val service: AuthService):PagingSource<Int,C
         return try {
             val nextPage = params.key ?: 0
             val pageSize = params.loadSize
-            val  classRoomResponse= service.getClassRoom("64863da015ef55bf1203b989",pageSize, nextPage)
+            val  classRoomResponse= service.getClassRoom(user,pageSize, nextPage)
             LoadResult.Page(
-                data = classRoomResponse.classroom,prevKey = null, nextKey = null)
+                data = classRoomResponse.classroom,
+                nextKey = if (classRoomResponse.next != null) nextPage + pageSize else null,
+                prevKey = if (classRoomResponse.previous != null) nextPage - pageSize else null
+            )
         } catch (e: IOException) {
             LoadResult.Error(e)
         } catch (e: HttpException) {
