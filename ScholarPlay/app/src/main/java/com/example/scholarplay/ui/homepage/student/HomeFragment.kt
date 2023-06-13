@@ -6,17 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
-import com.example.scholarplay.data.models.ClassModel
 import com.example.scholarplay.databinding.FragmentHomeBinding
-import com.example.scholarplay.repository.CredentialsRepository
-import com.example.scholarplay.ui.homepage.student.recyclerview.StudentHomePageAdapter
+import com.example.scholarplay.ui.homepage.student.recyclerview.StudentClassRoomAdapter
 import com.example.scholarplay.ui.homepage.student.viewmodel.StudentHomeViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
@@ -43,32 +42,32 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val rv = binding.recyclerviewClasses
 
-        val idStudent = app.getId()
+        rv.layoutManager = GridLayoutManager(context,2)
 
-        studentHomeViewModel.getClassRooms(idStudent)
-        binding.recyclerviewClasses.layoutManager = GridLayoutManager(view.context,2)
+        val adapter = StudentClassRoomAdapter(StudentClassRoomAdapter.ClassRoomComparator)
 
-        val adapter = StudentHomePageAdapter { selectedClass ->
-            showSelected(selectedClass)
-
+        lifecycleScope.launch {
+            studentHomeViewModel.classRooms.collectLatest { data ->
+                adapter.submitData(data)
+            }
         }
 
-        binding.recyclerviewClasses.adapter = adapter
-
-        studentHomeViewModel.classrooms.observe(viewLifecycleOwner){
-            adapter.setData(it)
-            Log.d("AAA!!", it.toString())
+        lifecycleScope.launch {
+            adapter.loadStateFlow.collectLatest { loadStates ->
+                binding.progressBar.isVisible =
+                    loadStates.append is LoadState.Loading
+                            || loadStates.prepend is LoadState.Loading
+                            || loadStates.append is LoadState.Loading
+                            || loadStates.refresh is LoadState.Loading
+            }
         }
-       /* binding.recyclerviewClasses.layoutManager = GridLayoutManager(view.context,2)
-        val adapter = StudentHomePageAdapter()
 
-        binding.recyclerviewClasses.adapter = adapter
-
-        adapter.setData(studentHomeViewModel.getClassRooms(idStudent))*/
+        rv.adapter = adapter
 
 
-        setTokenOnView()
+
 
 
 
@@ -76,14 +75,8 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun setTokenOnView() {
-        val tokenValue = app.getToken()
-        binding.tokenTextView.text = tokenValue
-    }
 
-    private fun showSelected(classRoom: ClassModel){
-        studentHomeViewModel.setSelectedClass(classRoom)
-    }
+
 
 
 

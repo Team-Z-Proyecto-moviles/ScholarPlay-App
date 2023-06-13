@@ -14,19 +14,10 @@ import com.example.scholarplay.repository.ClassRoomRepository
 import kotlinx.coroutines.launch
 
 class StudentHomeViewModel(private val repository: ClassRoomRepository): ViewModel() {
-    var classrooms = MutableLiveData<List<ClassModel>>()
 
-    fun getClassRooms(user: String) {
+    val classRooms = repository
+        .getClassRoomPage(2)
 
-        viewModelScope.launch {
-        val response = repository.getClassRooms(user)
-            classrooms.value = response.classroom
-        }
-
-    }
-
-    fun setSelectedClass(classRoom: ClassModel){
-    }
 
 
 

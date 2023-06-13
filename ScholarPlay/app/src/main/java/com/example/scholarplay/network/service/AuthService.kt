@@ -26,8 +26,7 @@ interface AuthService {
     @GET("api/auth/find/alldata/user/{token}")
     suspend fun getUser(@Path("token") token: String):UserResponse
 
-    @GET("api/classroom/students/classrooms/{user}")
+    @GET("api/classroom/students/classrooms/plusname/teacher/{user}")
     suspend fun getClassRoom(
-        @Path("user") user: String,
-        @Query("limit") limit: Int): ClassRoomResponse
+        @Path("user") user: String, @Query("limit") limit: Int, @Query("offset") offset: Int): ClassRoomResponse
 }

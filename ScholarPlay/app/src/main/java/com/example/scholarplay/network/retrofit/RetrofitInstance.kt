@@ -27,4 +27,5 @@ object RetrofitInstance {
     fun getLoginService(): AuthService {
         return retrofit.create(AuthService::class.java)
     }
+
 }
