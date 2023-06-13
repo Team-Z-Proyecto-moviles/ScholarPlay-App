@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -6,6 +7,7 @@
     android:padding="@dimen/small_gap">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/class_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/corner_radius">
@@ -23,6 +25,7 @@
             </ImageView>
 
             <TextView
+                android:id="@+id/classname_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/small_gap"
@@ -34,6 +37,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/teacher_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/small_gap"
@@ -50,3 +54,5 @@
     </androidx.cardview.widget.CardView>
 
 </FrameLayout>
+
+</layout>

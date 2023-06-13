@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.scholarplay.network.retrofit.RetrofitInstance
+import com.example.scholarplay.repository.ClassRoomRepository
 import com.example.scholarplay.repository.CredentialsRepository
 
 class ScholarPlayApplication : Application() {
@@ -13,16 +14,20 @@ class ScholarPlayApplication : Application() {
 
     private fun getAPIService() = with(RetrofitInstance) {
         setToken(getToken())
-        setStatus(getStatus())
+        setId(getId())
         getLoginService()
     }
 
     fun getToken(): String = prefs.getString(USER_TOKEN,"")!!
 
-    fun getStatus(): String = prefs.getString(USER_STATUS,"")!!
+    fun getId(): String = prefs.getString(USER_ID,"")!!
 
     val credentialsRepository: CredentialsRepository by lazy {
         CredentialsRepository(getAPIService())
+    }
+
+    val classRoomRepository: ClassRoomRepository by lazy {
+        ClassRoomRepository(getAPIService())
     }
 
     fun saveAuthToken(token: String) {
@@ -33,7 +38,7 @@ class ScholarPlayApplication : Application() {
 
     fun saveId(status: String) {
         val editor = prefs.edit()
-        editor.putString(USER_STATUS, status)
+        editor.putString(USER_ID, status)
         editor.apply()
     }
 
@@ -41,6 +46,6 @@ class ScholarPlayApplication : Application() {
 
     companion object{
         const val USER_TOKEN = "user_token"
-        const val USER_STATUS = "user_status"
+        const val USER_ID = "user_status"
     }
 }
