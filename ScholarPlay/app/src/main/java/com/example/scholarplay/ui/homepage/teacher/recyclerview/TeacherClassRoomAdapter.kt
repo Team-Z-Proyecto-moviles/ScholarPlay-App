@@ -16,10 +16,11 @@ class TeacherClassRoomAdapter(differCallback: DiffUtil.ItemCallback<ClassModel>)
 
         class TeacherClassRoomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
             private val className: TextView = itemView.findViewById(R.id.classname_text_view)
-            //private val teacherName: TextView = itemView.findViewById(R.id.teacher_text_view)
+            private val teacherName: TextView = itemView.findViewById(R.id.teacher_text_view)
 
             fun bind(classRoom: ClassModel?){
                 className.text = classRoom?.name ?: "Classname"
+                teacherName.text = ""
             }
         }
 
