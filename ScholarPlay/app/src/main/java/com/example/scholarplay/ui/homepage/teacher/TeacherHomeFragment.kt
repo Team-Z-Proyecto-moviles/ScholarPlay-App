@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.scholarplay.R
@@ -43,6 +44,9 @@ class TeacherHomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.floatingActionButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_teacherHomeFragment_to_createAClassFragment)
+        }
         val rv = binding.recyclerviewClasses
 
         rv.layoutManager = GridLayoutManager(context, 2)

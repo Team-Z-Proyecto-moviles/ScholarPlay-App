@@ -17,6 +17,13 @@
     <string name="teacher_label">Teacher</string>
     <string name="join_a_class_label">Join a Class</string>
     <string name="warning_joinclass">Your teacher must provide you the code to join the class</string>
+    <string name="enter_code_label">Enter the class code</string>
+    <string name="class_code_label">Class code</string>
+    <string name="join_label">Join</string>
+    <string name="create_a_new_class_label">Create a new class</string>
+    <string name="classname_label">Classname</string>
+    <string name="section_label">Section</string>
+    <string name="class_wallpaper_label">Class wallpaper</string>
 
     <string-array name="ocuupations_arrat">
         <item>Student</item>
