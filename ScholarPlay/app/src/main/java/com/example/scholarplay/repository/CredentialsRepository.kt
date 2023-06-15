@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.startup.AppInitializer
 import com.example.scholarplay.network.ApiResponse
 import com.example.scholarplay.network.ApiUserResponse
+import com.example.scholarplay.network.dto.join.JoinRequest
 import com.example.scholarplay.network.dto.login.LoginRequest
 import com.example.scholarplay.network.dto.register.RegisterRequest
 import com.example.scholarplay.network.dto.user.UserResponse
@@ -72,6 +73,22 @@ class CredentialsRepository(private val api: AuthService) {
             return ApiUserResponse.Error(e)
         }
 
+    }
+
+    suspend fun joinClassRoom(student: String, code: String): ApiResponse<String>{
+        try {
+            val response = api.joinClassRoom(JoinRequest(student, code))
+            return ApiResponse.Succes(response.message)
+
+        } catch (e: HttpException){
+            if (e.code() == 400){
+                return ApiResponse.ErrorWithMessege("Student already exists in classroom.")
+            }
+
+            return ApiResponse.Error(e)
+        } catch (e: IOException){
+            return ApiResponse.Error(e)
+        }
     }
 
 

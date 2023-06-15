@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -31,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/medium_gap"
         android:fontFamily="@font/urbanist_medium"
-        android:text="Enter the class code"
+        android:text="@string/enter_code_label"
         android:textColor="@color/buttoncolor"
         android:textSize="16sp">
 
@@ -44,13 +46,14 @@
         android:layout_marginStart="@dimen/medium_gap"
         android:layout_marginTop="@dimen/big_gap"
         android:layout_marginEnd="@dimen/big_gap"
-        android:hint="Class code"
+        android:hint="@string/class_code_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greeting_text_view">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/classcode_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/urbanist_light"
@@ -59,13 +62,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/join_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/big_gap"
         android:backgroundTint="@color/green"
         android:fontFamily="@font/urbanist_bold"
-        android:text="Join"
+        android:text="@string/join_label"
         android:textColor="@color/buttoncolor">
 
     </Button>
@@ -100,3 +104,5 @@
 
 
 </LinearLayout>
+
+</layout>
