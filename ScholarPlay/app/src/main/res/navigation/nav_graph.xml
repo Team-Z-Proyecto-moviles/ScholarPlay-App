@@ -66,5 +66,9 @@
         android:id="@+id/createAClassFragment"
         android:name="com.example.scholarplay.ui.createclass.CreateAClassFragment"
         android:label="fragment_create_a_class"
-        tools:layout="@layout/fragment_create_a_class" />
+        tools:layout="@layout/fragment_create_a_class" >
+        <action
+            android:id="@+id/action_createAClassFragment_to_teacherHomeFragment"
+            app:destination="@id/teacherHomeFragment" />
+    </fragment>
 </navigation>
