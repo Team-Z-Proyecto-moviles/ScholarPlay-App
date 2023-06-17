@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -42,6 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/greeting_text_view">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Classname_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/urbanist_light" />
@@ -63,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/greeting_text_view">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/section_input_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/urbanist_light" />
@@ -84,6 +87,7 @@
     </TextView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/add_image_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -94,15 +98,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/bluegray"
-            android:paddingStart="160dp"
-            android:paddingTop="40dp"
-            android:paddingEnd="160dp"
-            android:paddingBottom="40dp">
+          >
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/wallpaper_image_view"
+                android:layout_width="330dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
+                android:scaleType="center"
 
 
                 app:srcCompat="@drawable/outline_add_photo_alternate_24">
@@ -116,7 +119,7 @@
 
 
     <Button
-        android:id="@+id/join_button"
+        android:id="@+id/create_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -130,3 +133,5 @@
 
 
 </LinearLayout>
+
+</layout>

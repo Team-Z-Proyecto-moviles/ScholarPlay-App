@@ -24,6 +24,7 @@
     <string name="classname_label">Classname</string>
     <string name="section_label">Section</string>
     <string name="class_wallpaper_label">Class wallpaper</string>
+    <string name="select_a_wallpaper_label">Select a wallpaper</string>
 
     <string-array name="ocuupations_arrat">
         <item>Student</item>

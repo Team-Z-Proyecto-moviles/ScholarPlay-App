@@ -1,5 +1,6 @@
 package com.example.scholarplay.network.service
 
+import com.example.scholarplay.network.dto.classroom.ClassRoomRequest
 import com.example.scholarplay.network.dto.classroom.ClassRoomResponse
 import com.example.scholarplay.network.dto.join.JoinRequest
 import com.example.scholarplay.network.dto.join.JoinResponse
@@ -35,5 +36,8 @@ interface AuthService {
 
     @POST("api/classroom/add-student/code/classroom")
     suspend fun joinClassRoom(@Body credentials: JoinRequest): JoinResponse
+
+    @POST("api/classroom")
+    suspend fun createClassRoom(@Body credentials: ClassRoomRequest)
 
 }
