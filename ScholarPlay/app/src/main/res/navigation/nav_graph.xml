@@ -43,6 +43,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_registerFragment_to_avatarFragment"
+            app:destination="@id/avatarFragment" />
     </fragment>
     <fragment
         android:id="@+id/teacherHomeFragment"
@@ -71,4 +74,8 @@
             android:id="@+id/action_createAClassFragment_to_teacherHomeFragment"
             app:destination="@id/teacherHomeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/avatarFragment"
+        android:name="com.example.scholarplay.ui.avatar.AvatarFragment"
+        android:label="AvatarFragment" />
 </navigation>

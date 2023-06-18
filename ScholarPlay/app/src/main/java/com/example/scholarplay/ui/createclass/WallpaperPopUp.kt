@@ -11,6 +11,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 
 import com.example.scholarplay.databinding.FragmentAddWallpaperBinding
+import com.example.scholarplay.network.retrofit.RetrofitInstance
 import com.example.scholarplay.ui.createclass.viewmodel.CreateClassViewModel
 
 class WallpaperPopUp: DialogFragment() {
@@ -45,7 +46,9 @@ class WallpaperPopUp: DialogFragment() {
             val selectedID = binding.wallpaperGroup.checkedRadioButtonId
             val radio = view.findViewById<RadioButton>(selectedID)
 
-            var result = radio.text.toString()?: ""
+
+
+            var result = radio.text.toString()
 
 
             createClassViewModel.getImage(result)

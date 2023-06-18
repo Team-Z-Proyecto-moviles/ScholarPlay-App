@@ -7,6 +7,7 @@ import retrofit2.create
 
 const val BASE_URL = "https://scholarplay-api-production.up.railway.app/"
 
+
 object RetrofitInstance {
     private var token = ""
     private var id = ""
@@ -26,6 +27,11 @@ object RetrofitInstance {
 
     fun getLoginService(): AuthService {
         return retrofit.create(AuthService::class.java)
+    }
+
+    fun getApiUrl(): String{
+        return BASE_URL
+
     }
 
 }

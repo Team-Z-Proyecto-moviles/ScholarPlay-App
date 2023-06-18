@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Color when the row is selected -->
-    <item  android:state_enabled="true">
-        <shape android:shape="rectangle">
+    <item android:state_enabled="true">
+        <shape>
             <solid android:color="@color/buttoncolor" />
             <corners android:radius="100dp" />
         </shape>
     </item>
-    <!-- Standard background color -->
     <item>
-        <shape android:shape="rectangle">
+        <shape>
             <solid android:color="@color/neutral" />
             <corners android:radius="100dp" />
         </shape>

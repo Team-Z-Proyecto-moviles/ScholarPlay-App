@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
 import com.example.scholarplay.databinding.FragmentCreateAClassBinding
+import com.example.scholarplay.network.retrofit.RetrofitInstance
 import com.example.scholarplay.ui.createclass.viewmodel.CreateClassViewModel
 
 
@@ -40,6 +41,8 @@ class CreateAClassFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val url = RetrofitInstance.getApiUrl()
+
         binding.addImageCard.setOnClickListener {
 
             var popup = WallpaperPopUp()
@@ -49,11 +52,11 @@ class CreateAClassFragment : Fragment() {
 
         createClassViewModel.image.observe(viewLifecycleOwner){
             when(it){
-                "https://scholarplay-api-production.up.railway.app/math_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.math_wallpaper)
-                "https://scholarplay-api-production.up.railway.app/sciene_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.sciene_wallpaper)
-                "https://scholarplay-api-production.up.railway.app/geography_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.geography_wallpaper)
-                "https://scholarplay-api-production.up.railway.app/code_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.code_wallpaper)
-                "https://scholarplay-api-production.up.railway.app/chemestry_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.chemestry_wallpaper)
+                url + "math_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.math_wallpaper)
+                url + "sciene_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.sciene_wallpaper)
+                url + "geography_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.geography_wallpaper)
+                url + "code_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.code_wallpaper)
+                url + "chemestry_wallpaper.png" -> binding.wallpaperImageView.setImageResource(R.drawable.chemestry_wallpaper)
             }
         }
 
@@ -63,12 +66,14 @@ class CreateAClassFragment : Fragment() {
     }
 
     private fun createListener(){
+
         val teacher = app.getId()
         val name = binding.ClassnameEditText.text.toString()
         val section = binding.sectionInputText.text.toString()
 
 
         createClassViewModel.onCreateClass(name, teacher, section)
+        createClassViewModel.clearData()
         findNavController().navigate(R.id.action_createAClassFragment_to_teacherHomeFragment)
     }
 

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.scholarplay.ScholarPlayApplication
+import com.example.scholarplay.network.retrofit.RetrofitInstance
 import com.example.scholarplay.repository.ClassRoomRepository
 import kotlinx.coroutines.launch
 
@@ -23,11 +24,18 @@ class CreateClassViewModel(private val repository: ClassRoomRepository): ViewMod
     }
 
     fun getImage(newImage: String){
-        image.value = newImage
+        val url = RetrofitInstance.getApiUrl()
+        image.value = url + newImage
     }
 
     fun onCreateClass(name: String, teacher: String, section: String){
         createClass(name, teacher, image.value!!, section)
+    }
+
+    fun clearData(){
+        name.value = ""
+        teacher.value = ""
+        image.value = ""
     }
 
 
