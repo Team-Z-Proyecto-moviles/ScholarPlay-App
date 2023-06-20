@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:text="https://scholarplay-api-production.up.railway.app/math_wallpaper.png"
+                android:text="math_wallpaper.png"
                 android:textColor="@android:color/transparent"
                 android:id="@+id/math_wallpaper"
                 android:background="@drawable/custom_radio_selector"
@@ -39,7 +39,7 @@
 
             </RadioButton>
             <RadioButton
-                android:text="https://scholarplay-api-production.up.railway.app/sciene_wallpaper.png"
+                android:text="sciene_wallpaper.png"
                 android:textColor="@android:color/transparent"
                 android:id="@+id/science_wallpaper"
                 android:background="@drawable/custom_radio_selector"
@@ -51,7 +51,7 @@
             </RadioButton>
 
             <RadioButton
-                android:text="https://scholarplay-api-production.up.railway.app/code_wallpaper.png"
+                android:text="code_wallpaper.png"
                 android:textColor="@android:color/transparent"
                 android:id="@+id/code_wallpaper"
                 android:background="@drawable/custom_radio_selector"
@@ -63,7 +63,7 @@
             </RadioButton>
 
             <RadioButton
-                android:text="https://scholarplay-api-production.up.railway.app/geography_wallpaper.png"
+                android:text="geography_wallpaper.png"
                 android:textColor="@android:color/transparent"
                 android:id="@+id/geography_wallpaper"
                 android:background="@drawable/custom_radio_selector"
@@ -74,7 +74,7 @@
                 android:layout_height="244dp">
             </RadioButton>
             <RadioButton
-                android:text="https://scholarplay-api-production.up.railway.app/chemestry_wallpaper.png"
+                android:text="chemestry_wallpaper.png"
                 android:textColor="@android:color/transparent"
                 android:id="@+id/chemistry_wallpaper"
                 android:background="@drawable/custom_radio_selector"
