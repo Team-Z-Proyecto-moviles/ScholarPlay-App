@@ -56,10 +56,6 @@ class RegisterFragment : Fragment() {
             it.findNavController().navigate(R.id.action_registerFragment_to_loginFragment3)
         }
 
-        binding.backButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_registerFragment_to_avatarFragment)
-        }
-
     }
 
     private fun setViewmodel(){
@@ -110,7 +106,7 @@ class RegisterFragment : Fragment() {
             is RegisterUiStatus.Success -> {
                 registerViewModel.clearStatus()
                 registerViewModel.clearData()
-                findNavController().navigate(R.id.action_registerFragment_to_avatarFragment)
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment3)
             }
 
             else -> {}
