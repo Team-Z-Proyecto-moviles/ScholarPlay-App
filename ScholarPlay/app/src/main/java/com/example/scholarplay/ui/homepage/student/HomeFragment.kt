@@ -72,7 +72,8 @@ class HomeFragment : Fragment() {
 
 
         binding.floatingActionButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_homeFragment2_to_joinAClassFragment)
+
+            it.findNavController().navigate(R.id.action_homeFragment_to_joinAClassFragment)
         }
 
 

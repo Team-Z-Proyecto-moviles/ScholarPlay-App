@@ -12,6 +12,7 @@ import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
 import com.example.scholarplay.databinding.FragmentJoinAClassBinding
 import com.example.scholarplay.ui.joinclass.viewmodel.JoinAClassViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class JoinAClassFragment : Fragment() {
@@ -29,16 +30,24 @@ class JoinAClassFragment : Fragment() {
 
 
 
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentJoinAClassBinding.inflate(inflater, container, false)
         return binding.root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         binding.joinButton.setOnClickListener {
            joinListener()
@@ -74,7 +83,8 @@ class JoinAClassFragment : Fragment() {
             is JoinUiStatus.Success -> {
                 joinAClassViewModel.clearStatus()
                 joinAClassViewModel.clearData()
-                findNavController().navigate(R.id.action_joinAClassFragment_to_homeFragment2)
+
+                findNavController().navigate(R.id.action_joinAClassFragment_to_homeFragment)
             }
 
             else -> {}

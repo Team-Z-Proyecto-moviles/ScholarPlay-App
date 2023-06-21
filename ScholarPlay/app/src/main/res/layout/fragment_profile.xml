@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.profile.ProfileFragment">
 
     <TextView
@@ -163,10 +164,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/edu_coins_label"
+                android:layout_marginTop="@dimen/medium_gap"
                 android:fontFamily="@font/urbanist_bold"
-                android:textColor="@color/green"
-                android:layout_marginTop="@dimen/medium_gap"/>
+                android:text="@string/edu_coins_label"
+                android:textColor="@color/green" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -176,16 +177,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1000"
                     android:fontFamily="@font/urbanist_medium"
-                    android:textColor="@color/white"/>
+                    android:text="1000"
+                    android:textColor="@color/white" />
 
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    app:srcCompat="@drawable/edu_coin"
-                    android:layout_marginStart="@dimen/small_gap"/>
-
+                    android:layout_marginStart="@dimen/small_gap"
+                    app:srcCompat="@drawable/edu_coin" />
 
 
             </LinearLayout>
@@ -205,6 +205,7 @@
         app:cardCornerRadius="@dimen/corner_radius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -219,10 +220,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="XP"
+                android:layout_marginTop="@dimen/medium_gap"
                 android:fontFamily="@font/urbanist_bold"
-                android:textColor="@color/buttoncolor"
-                android:layout_marginTop="@dimen/medium_gap"/>
+                android:text="XP"
+                android:textColor="@color/buttoncolor" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -232,16 +233,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1000"
                     android:fontFamily="@font/urbanist_medium"
-                    android:textColor="@color/white"/>
+                    android:text="1000"
+                    android:textColor="@color/white" />
 
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    app:srcCompat="@drawable/xp"
-                    android:layout_marginStart="@dimen/small_gap"/>
-
+                    android:layout_marginStart="@dimen/small_gap"
+                    app:srcCompat="@drawable/xp" />
 
 
             </LinearLayout>
