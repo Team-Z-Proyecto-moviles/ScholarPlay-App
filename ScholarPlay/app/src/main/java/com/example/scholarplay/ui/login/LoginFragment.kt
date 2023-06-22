@@ -38,12 +38,21 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        app.saveAuthToken("")
+        app.saveId("")
+
         setViewModel()
         observeStatus()
 
         binding.createAccountTextView.setOnClickListener {
             it.findNavController().navigate(R.id.action_loginFragment3_to_registerFragment)
         }
+
+        binding.tokenTextView.text = app.getToken()
+
+        binding.idTextView.text = app.getId()
+
+
 
     }
 
@@ -85,7 +94,7 @@ class LoginFragment : Fragment() {
                 }
 
                 if (uiStatus.user_data.user.status == "teacher"){
-                    findNavController().navigate(R.id.action_loginFragment3_to_teacherHomeFragment)
+                    findNavController().navigate(R.id.action_loginFragment3_to_teacherActivity)
                 }
             }
 

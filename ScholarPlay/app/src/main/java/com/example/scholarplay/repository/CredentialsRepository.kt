@@ -2,6 +2,7 @@ package com.example.scholarplay.repository
 
 import android.util.Log
 import androidx.startup.AppInitializer
+import com.example.scholarplay.data.models.UserModel
 import com.example.scholarplay.network.ApiResponse
 import com.example.scholarplay.network.ApiUserResponse
 import com.example.scholarplay.network.dto.join.JoinRequest
@@ -74,6 +75,8 @@ class CredentialsRepository(private val api: AuthService) {
         }
 
     }
+
+    suspend fun getUserProfile(token: String) = api.getUser(token)
 
     suspend fun joinClassRoom(student: String, code: String): ApiResponse<String>{
         try {

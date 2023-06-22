@@ -45,7 +45,7 @@ class TeacherHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.floatingActionButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_teacherHomeFragment_to_createAClassFragment)
+            it.findNavController().navigate(R.id.action_teacherHomeFragment2_to_createAClassFragment)
         }
         val rv = binding.recyclerviewClasses
 

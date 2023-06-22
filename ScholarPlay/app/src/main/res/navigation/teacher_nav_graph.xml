@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teacher_nav_graph"
+    app:startDestination="@id/teacherHomeFragment2">
+
+    <fragment
+        android:id="@+id/teacherHomeFragment2"
+        android:name="com.example.scholarplay.ui.homepage.teacher.TeacherHomeFragment"
+        android:label="TeacherHomeFragment" >
+        <action
+            android:id="@+id/action_teacherHomeFragment2_to_createAClassFragment"
+            app:destination="@id/createAClassFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.scholarplay.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_nav_graph"
+            app:destination="@id/nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="com.example.scholarplay.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <include app:graph="@navigation/nav_graph" />
+    <fragment
+        android:id="@+id/createAClassFragment"
+        android:name="com.example.scholarplay.ui.createclass.CreateAClassFragment"
+        android:label="CreateAClassFragment" >
+        <action
+            android:id="@+id/action_createAClassFragment_to_teacherHomeFragment2"
+            app:destination="@id/teacherHomeFragment2" />
+    </fragment>
+</navigation>

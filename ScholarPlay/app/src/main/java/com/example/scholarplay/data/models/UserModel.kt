@@ -6,7 +6,8 @@ data class UserModel (
     @SerializedName("_id") val id : String,
     @SerializedName("name") val name : String,
     @SerializedName("email") val email : String,
-    @SerializedName("status") val status : String
+    @SerializedName("status") val status : String,
+    @SerializedName("avatar") val avatar : String
 
 
         )
