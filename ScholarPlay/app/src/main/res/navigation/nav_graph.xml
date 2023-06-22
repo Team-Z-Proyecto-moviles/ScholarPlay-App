@@ -9,9 +9,6 @@
         android:name="com.example.scholarplay.ui.login.LoginFragment"
         android:label="LoginFragment" >
         <action
-            android:id="@+id/action_loginFragment3_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
-        <action
             android:id="@+id/action_loginFragment3_to_registerFragment"
             app:destination="@id/registerFragment"
             app:enterAnim="@anim/slide_in_right"
@@ -21,15 +18,9 @@
         <action
             android:id="@+id/action_loginFragment3_to_teacherHomeFragment"
             app:destination="@id/teacherHomeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/homeFragment2"
-        android:name="com.example.scholarplay.ui.homepage.student.HomeFragment"
-        android:label="HomeFragment" >
         <action
-            android:id="@+id/action_homeFragment2_to_joinAClassFragment"
-            app:destination="@id/joinAClassFragment"
-            app:enterAnim="@anim/slide_in_up" />
+            android:id="@+id/action_loginFragment3_to_studentActivity2"
+            app:destination="@id/studentActivity2" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -43,9 +34,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_registerFragment_to_avatarFragment"
-            app:destination="@id/avatarFragment" />
     </fragment>
     <fragment
         android:id="@+id/teacherHomeFragment"
@@ -57,15 +45,6 @@
             app:enterAnim="@anim/slide_in_up" />
     </fragment>
     <fragment
-        android:id="@+id/joinAClassFragment"
-        android:name="com.example.scholarplay.ui.joinclass.JoinAClassFragment"
-        android:label="fragment_join_a_class"
-        tools:layout="@layout/fragment_join_a_class" >
-        <action
-            android:id="@+id/action_joinAClassFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
-    </fragment>
-    <fragment
         android:id="@+id/createAClassFragment"
         android:name="com.example.scholarplay.ui.createclass.CreateAClassFragment"
         android:label="fragment_create_a_class"
@@ -74,8 +53,8 @@
             android:id="@+id/action_createAClassFragment_to_teacherHomeFragment"
             app:destination="@id/teacherHomeFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/avatarFragment"
-        android:name="com.example.scholarplay.ui.avatar.AvatarFragment"
-        android:label="AvatarFragment" />
+    <activity
+        android:id="@+id/studentActivity2"
+        android:name="com.example.scholarplay.ui.StudentActivity"
+        android:label="StudentActivity" />
 </navigation>

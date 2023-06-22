@@ -81,7 +81,7 @@ class LoginFragment : Fragment() {
                 app.saveId(uiStatus.user_data.user.id)
 
                 if (uiStatus.user_data.user.status == "student"){
-                    findNavController().navigate(R.id.action_loginFragment3_to_homeFragment2)
+                    findNavController().navigate(R.id.action_loginFragment3_to_studentActivity2)
                 }
 
                 if (uiStatus.user_data.user.status == "teacher"){
