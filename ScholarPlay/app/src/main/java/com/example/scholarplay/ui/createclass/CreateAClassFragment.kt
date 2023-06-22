@@ -74,7 +74,7 @@ class CreateAClassFragment : Fragment() {
 
         createClassViewModel.onCreateClass(name, teacher, section)
         createClassViewModel.clearData()
-        findNavController().navigate(R.id.action_createAClassFragment_to_teacherHomeFragment)
+        findNavController().navigate(R.id.action_createAClassFragment_to_teacherHomeFragment2)
     }
 
 }
