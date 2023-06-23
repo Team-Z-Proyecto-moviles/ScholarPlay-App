@@ -80,6 +80,8 @@
             android:id="@+id/password_login_textField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/gray"
             android:layout_marginStart="@dimen/big_gap"
             android:layout_marginTop="@dimen/medium_gap"
             android:layout_marginEnd="@dimen/big_gap"

@@ -1,5 +1,6 @@
 package com.example.scholarplay.ui.profile.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
@@ -28,6 +29,7 @@ class ProfileViewModel(private  val repository: CredentialsRepository) : ViewMod
             initializer {
                 val app = this[APPLICATION_KEY] as ScholarPlayApplication
                 ProfileViewModel(app.credentialsRepository)
+
             }
         }
     }

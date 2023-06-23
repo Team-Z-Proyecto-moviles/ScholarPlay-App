@@ -28,6 +28,7 @@
     <string name="select_an_avatar_label">Select an avatar</string>
     <string name="select_label">Select</string>
     <string name="edu_coins_label">Edu-coins</string>
+    <string name="edit_profile_label">Edit profile</string>
 
     <string-array name="ocuupations_arrat">
         <item>Student</item>
