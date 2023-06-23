@@ -5,6 +5,7 @@ import androidx.startup.AppInitializer
 import com.example.scholarplay.data.models.UserModel
 import com.example.scholarplay.network.ApiResponse
 import com.example.scholarplay.network.ApiUserResponse
+import com.example.scholarplay.network.dto.avatar.AvatarRequest
 import com.example.scholarplay.network.dto.join.JoinRequest
 import com.example.scholarplay.network.dto.login.LoginRequest
 import com.example.scholarplay.network.dto.register.RegisterRequest
@@ -77,6 +78,10 @@ class CredentialsRepository(private val api: AuthService) {
     }
 
     suspend fun getUserProfile(token: String) = api.getUser(token)
+
+    suspend fun updateAvatar(user: String, avatar : String) = api.updateAvatar(user, AvatarRequest(avatar))
+
+    suspend fun updateAvatarTeacher(teacher: String, avatar: String) = api.updateAvatarTeacher(teacher, AvatarRequest(avatar))
 
     suspend fun joinClassRoom(student: String, code: String): ApiResponse<String>{
         try {

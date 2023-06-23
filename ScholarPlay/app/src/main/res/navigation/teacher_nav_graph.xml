@@ -42,5 +42,17 @@
         android:id="@+id/updateProfileFragment2"
         android:name="com.example.scholarplay.ui.updateprofile.UpdateProfileFragment"
         android:label="fragment_update_profile"
-        tools:layout="@layout/fragment_update_profile" />
+        tools:layout="@layout/fragment_update_profile" >
+        <action
+            android:id="@+id/action_updateProfileFragment2_to_teacherAvatarFragment"
+            app:destination="@id/teacherAvatarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherAvatarFragment"
+        android:name="com.example.scholarplay.ui.avatar.TeacherAvatarFragment"
+        android:label="TeacherAvatarFragment" >
+        <action
+            android:id="@+id/action_teacherAvatarFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>
