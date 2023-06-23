@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
@@ -36,6 +37,10 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.editImageView.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_updateProfileFragment)
+        }
 
         val user = app.getToken()
 
