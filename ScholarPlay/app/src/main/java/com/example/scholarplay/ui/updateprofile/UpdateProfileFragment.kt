@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.scholarplay.R
+import com.example.scholarplay.ScholarPlayApplication
 import com.example.scholarplay.databinding.FragmentUpdateProfileBinding
 import com.example.scholarplay.ui.profile.viewmodel.ProfileViewModel
 
@@ -19,6 +20,10 @@ class UpdateProfileFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentUpdateProfileBinding
+
+    val app by lazy {
+        requireActivity().application as ScholarPlayApplication
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +41,15 @@ class UpdateProfileFragment : Fragment() {
         setViewModel()
 
         binding.linearLayout.setOnClickListener {
-            findNavController().navigate(R.id.action_updateProfileFragment_to_avatarFragment)
+            val role = app.getRole()
+            if (role == "student"){
+                findNavController().navigate(R.id.action_updateProfileFragment_to_avatarFragment)
+            }
+
+            if (role == "teacher"){
+                findNavController().navigate(R.id.action_updateProfileFragment2_to_teacherAvatarFragment)
+            }
+
         }
 
 

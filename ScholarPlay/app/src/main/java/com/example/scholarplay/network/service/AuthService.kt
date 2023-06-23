@@ -1,5 +1,6 @@
 package com.example.scholarplay.network.service
 
+import com.example.scholarplay.network.dto.avatar.AvatarRequest
 import com.example.scholarplay.network.dto.classroom.ClassRoomRequest
 import com.example.scholarplay.network.dto.classroom.ClassRoomResponse
 import com.example.scholarplay.network.dto.join.JoinRequest
@@ -12,6 +13,7 @@ import com.example.scholarplay.network.dto.user.UserResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 import retrofit2.http.QueryMap
@@ -39,5 +41,11 @@ interface AuthService {
 
     @POST("api/classroom")
     suspend fun createClassRoom(@Body credentials: ClassRoomRequest)
+
+    @PUT("api/student/identifier/updateImage/{user}")
+    suspend fun updateAvatar(@Path("user") user: String, @Body credentials: AvatarRequest)
+
+    @PUT("api/teacher/identifier/updateImage/{teacher}")
+    suspend fun updateAvatarTeacher(@Path("teacher") teacher: String, @Body credentials: AvatarRequest)
 
 }

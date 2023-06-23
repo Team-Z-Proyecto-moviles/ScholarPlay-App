@@ -40,6 +40,7 @@ class LoginFragment : Fragment() {
 
         app.saveAuthToken("")
         app.saveId("")
+        app.saveRole("")
 
         setViewModel()
         observeStatus()
@@ -88,6 +89,7 @@ class LoginFragment : Fragment() {
             is LoginUiStatus.Succes2 -> {
                 loginViewmodel.clearStatus()
                 app.saveId(uiStatus.user_data.user.id)
+                app.saveRole(uiStatus.user_data.user.status)
 
                 if (uiStatus.user_data.user.status == "student"){
                     findNavController().navigate(R.id.action_loginFragment3_to_studentActivity2)

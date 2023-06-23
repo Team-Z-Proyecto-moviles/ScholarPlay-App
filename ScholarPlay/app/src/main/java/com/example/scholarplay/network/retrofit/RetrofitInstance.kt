@@ -11,6 +11,7 @@ const val BASE_URL = "https://scholarplay-api-production.up.railway.app/"
 object RetrofitInstance {
     private var token = ""
     private var id = ""
+    private var role = ""
 
     fun setToken(token: String){
         this.token = token
@@ -18,6 +19,10 @@ object RetrofitInstance {
 
     fun setId(status: String){
         this.id = status
+    }
+
+    fun setRole(role: String){
+        this.role = role
     }
 
     private val retrofit = Retrofit.Builder()
