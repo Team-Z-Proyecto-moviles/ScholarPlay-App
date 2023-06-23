@@ -24,6 +24,14 @@ class ProfileViewModel(private  val repository: CredentialsRepository) : ViewMod
 
     }
 
+    fun updateUser(user: String, name: String, email: String){
+        viewModelScope.launch {
+            repository.updateUser(user,name,email)
+        }
+    }
+
+
+
     companion object {
         val Factory = viewModelFactory {
             initializer {

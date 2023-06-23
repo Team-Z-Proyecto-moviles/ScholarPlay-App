@@ -19,6 +19,7 @@ class UpdateProfileFragment : Fragment() {
         ProfileViewModel.Factory
     }
 
+
     private lateinit var binding: FragmentUpdateProfileBinding
 
     val app by lazy {
@@ -39,6 +40,10 @@ class UpdateProfileFragment : Fragment() {
         setAvatar()
 
         setViewModel()
+
+        binding.updateButtom.setOnClickListener {
+            updateUser()
+        }
 
         binding.linearLayout.setOnClickListener {
             val role = app.getRole()
@@ -66,6 +71,16 @@ class UpdateProfileFragment : Fragment() {
              .load(it.user.avatar)
              .into(binding.pfpImageView)
      }
+    }
+
+    private fun updateUser(){
+        val user = app.getId()
+        val name = binding.nameEditText.text.toString()
+        val email = binding.emailEditText.text.toString()
+
+        profileViewModel.updateUser(user,name,email)
+
+        findNavController().navigate(R.id.action_updateProfileFragment_to_profileFragment)
     }
 
 }

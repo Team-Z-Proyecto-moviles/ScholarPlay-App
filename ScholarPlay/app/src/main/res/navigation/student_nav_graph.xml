@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_updateProfileFragment_to_avatarFragment"
             app:destination="@id/avatarFragment" />
+        <action
+            android:id="@+id/action_updateProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/avatarFragment"

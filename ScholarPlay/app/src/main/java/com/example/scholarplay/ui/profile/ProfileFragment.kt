@@ -53,6 +53,8 @@ class ProfileFragment : Fragment() {
 
 
 
+
+
         binding.logoutLinearLayout.setOnClickListener {
 
             app.saveId("")
