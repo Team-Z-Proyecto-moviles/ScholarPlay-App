@@ -12,40 +12,55 @@ import com.bumptech.glide.Glide
 import com.example.scholarplay.R
 import com.example.scholarplay.data.models.ClassModel
 
-class StudentClassRoomAdapter(differCallback: DiffUtil.ItemCallback<ClassModel>):
-    PagingDataAdapter<ClassModel, StudentClassRoomAdapter.StudentClassRoomViewHolder>(differCallback){
+class StudentClassRoomAdapter(
+    differCallback: DiffUtil.ItemCallback<ClassModel>,
+    private val listener: OnItemClickListener
+) : PagingDataAdapter<ClassModel, StudentClassRoomAdapter.StudentClassRoomViewHolder>(differCallback) {
 
-        class StudentClassRoomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-            private val className: TextView = itemView.findViewById(R.id.classname_text_view)
-            private val teacherName: TextView = itemView.findViewById(R.id.teacher_text_view)
-            private val imageClass: ImageView = itemView.findViewById(R.id.image_class)
+    interface OnItemClickListener {
+        fun onItemClick(classRoom: ClassModel)
+    }
 
-            fun bind(classRoom: ClassModel?) {
-                className.text = classRoom?.name ?: "Classname"
-                teacherName.text = classRoom?.teacher?.name ?: "Teacher"
+    inner class StudentClassRoomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val className: TextView = itemView.findViewById(R.id.classname_text_view)
+        private val teacherName: TextView = itemView.findViewById(R.id.teacher_text_view)
+        private val imageClass: ImageView = itemView.findViewById(R.id.image_class)
 
-                Glide
-                    .with(itemView)
-                    .load(classRoom?.image)
-                    .into(imageClass)
-            }
+        fun bind(classRoom: ClassModel?) {
+            className.text = classRoom?.name ?: "Classname"
+            teacherName.text = classRoom?.teacher?.name ?: "Teacher"
 
-
+            Glide
+                .with(itemView)
+                .load(classRoom?.image)
+                .into(imageClass)
         }
 
+        init {
+            itemView.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val classRoom = getItem(position)
+                    classRoom?.let {
+                        listener.onItemClick(it)
+                    }
+                }
+            }
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentClassRoomViewHolder {
-       val inflater = LayoutInflater.from(parent.context)
-        val view = inflater
-            .inflate(R.layout.class_item, parent, false)
+        val inflater = LayoutInflater.from(parent.context)
+        val view = inflater.inflate(R.layout.class_item, parent, false)
         return StudentClassRoomViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: StudentClassRoomViewHolder, position: Int) {
-       val item = getItem(position)
+        val item = getItem(position)
         holder.bind(item)
     }
 
-    object ClassRoomComparator : DiffUtil.ItemCallback<ClassModel>(){
+    object ClassRoomComparator : DiffUtil.ItemCallback<ClassModel>() {
         override fun areItemsTheSame(oldItem: ClassModel, newItem: ClassModel): Boolean {
             return oldItem.name == newItem.name
         }
@@ -53,8 +68,5 @@ class StudentClassRoomAdapter(differCallback: DiffUtil.ItemCallback<ClassModel>)
         override fun areContentsTheSame(oldItem: ClassModel, newItem: ClassModel): Boolean {
             return oldItem == newItem
         }
-
     }
-
-
 }

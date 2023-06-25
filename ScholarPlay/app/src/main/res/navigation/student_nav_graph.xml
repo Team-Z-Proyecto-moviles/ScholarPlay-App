@@ -13,6 +13,9 @@
             android:id="@+id/action_homeFragment_to_joinAClassFragment"
             app:destination="@id/joinAClassFragment"
             app:enterAnim="@anim/slide_in_up" />
+        <action
+            android:id="@+id/action_homeFragment_to_levelMenuFragment"
+            app:destination="@id/levelMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -60,4 +63,8 @@
             android:id="@+id/action_avatarFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/levelMenuFragment"
+        android:name="com.example.scholarplay.ui.levelmenu.student.LevelMenuFragment"
+        android:label="LevelMenuFragment" />
 </navigation>

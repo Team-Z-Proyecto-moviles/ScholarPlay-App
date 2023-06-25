@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_teacherHomeFragment2_to_createAClassFragment"
             app:destination="@id/createAClassFragment" />
+        <action
+            android:id="@+id/action_teacherHomeFragment2_to_teacherLevelMenuFragment"
+            app:destination="@id/teacherLevelMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -58,4 +61,8 @@
             android:id="@+id/action_teacherAvatarFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/teacherLevelMenuFragment"
+        android:name="com.example.scholarplay.ui.levelmenu.teacher.TeacherLevelMenuFragment"
+        android:label="TeacherLevelMenuFragment" />
 </navigation>

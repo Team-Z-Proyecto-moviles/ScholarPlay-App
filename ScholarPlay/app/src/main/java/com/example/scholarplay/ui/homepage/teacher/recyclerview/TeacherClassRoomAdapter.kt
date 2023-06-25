@@ -13,11 +13,19 @@ import com.bumptech.glide.Glide
 import com.example.scholarplay.R
 import com.example.scholarplay.data.models.ClassModel
 
-class TeacherClassRoomAdapter(differCallback: DiffUtil.ItemCallback<ClassModel>):
-    PagingDataAdapter<ClassModel, TeacherClassRoomAdapter.TeacherClassRoomViewHolder>(differCallback){
+
+class TeacherClassRoomAdapter(
+    differCallback: DiffUtil.ItemCallback<ClassModel>,
+    private val listener : OnItemClickListener
+    ): PagingDataAdapter<ClassModel, TeacherClassRoomAdapter.TeacherClassRoomViewHolder>(differCallback){
 
 
-        class TeacherClassRoomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    interface OnItemClickListener{
+        fun onItemClick(ClassRoom: ClassModel)
+    }
+
+
+     inner class TeacherClassRoomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
             private val className: TextView = itemView.findViewById(R.id.classname_text_view)
             private val teacherName: TextView = itemView.findViewById(R.id.teacher_text_view)
             private val imageClass: ImageView = itemView.findViewById(R.id.image_class)
@@ -32,13 +40,24 @@ class TeacherClassRoomAdapter(differCallback: DiffUtil.ItemCallback<ClassModel>)
 
             }
 
+         init {
+             itemView.setOnClickListener{
+                 val position = bindingAdapterPosition
+                 if (position != RecyclerView.NO_POSITION) {
+                     val classRoom = getItem(position)
+                     classRoom?.let {
+                         listener.onItemClick(it)
+                     }
+                 }
+             }
+         }
+
 
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeacherClassRoomViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater
-            .inflate(R.layout.class_item, parent, false)
+        val view = inflater.inflate(R.layout.class_item, parent, false)
         return TeacherClassRoomViewHolder(view)
     }
 
@@ -57,9 +76,6 @@ class TeacherClassRoomAdapter(differCallback: DiffUtil.ItemCallback<ClassModel>)
             return oldItem == newItem
         }
     }
-
-
-
 
 
     }
