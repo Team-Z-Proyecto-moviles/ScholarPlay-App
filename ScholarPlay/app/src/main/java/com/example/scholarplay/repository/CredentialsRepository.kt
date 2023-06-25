@@ -9,6 +9,7 @@ import com.example.scholarplay.network.dto.avatar.AvatarRequest
 import com.example.scholarplay.network.dto.join.JoinRequest
 import com.example.scholarplay.network.dto.login.LoginRequest
 import com.example.scholarplay.network.dto.register.RegisterRequest
+import com.example.scholarplay.network.dto.user.UserRequest
 import com.example.scholarplay.network.dto.user.UserResponse
 import com.example.scholarplay.network.service.AuthService
 import retrofit2.HttpException
@@ -82,6 +83,8 @@ class CredentialsRepository(private val api: AuthService) {
     suspend fun updateAvatar(user: String, avatar : String) = api.updateAvatar(user, AvatarRequest(avatar))
 
     suspend fun updateAvatarTeacher(teacher: String, avatar: String) = api.updateAvatarTeacher(teacher, AvatarRequest(avatar))
+
+    suspend fun updateUser(user: String, name: String, email: String) = api.updateUser(user, UserRequest(name,email))
 
     suspend fun joinClassRoom(student: String, code: String): ApiResponse<String>{
         try {

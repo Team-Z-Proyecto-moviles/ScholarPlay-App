@@ -9,6 +9,7 @@ import com.example.scholarplay.network.dto.login.LoginRequest
 import com.example.scholarplay.network.dto.login.LoginResponse
 import com.example.scholarplay.network.dto.register.RegisterRequest
 import com.example.scholarplay.network.dto.register.RegisterResponse
+import com.example.scholarplay.network.dto.user.UserRequest
 import com.example.scholarplay.network.dto.user.UserResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -47,5 +48,8 @@ interface AuthService {
 
     @PUT("api/teacher/identifier/updateImage/{teacher}")
     suspend fun updateAvatarTeacher(@Path("teacher") teacher: String, @Body credentials: AvatarRequest)
+
+    @PUT("api/auth/update/data/user/{user}")
+    suspend fun updateUser(@Path("user") user: String, @Body credentials: UserRequest)
 
 }
