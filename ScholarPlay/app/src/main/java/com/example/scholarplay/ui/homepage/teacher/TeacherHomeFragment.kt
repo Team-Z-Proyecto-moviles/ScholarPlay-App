@@ -9,21 +9,28 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
+import com.example.scholarplay.data.models.ClassModel
 import com.example.scholarplay.databinding.FragmentTeacherHomeBinding
 import com.example.scholarplay.ui.homepage.student.recyclerview.StudentClassRoomAdapter
 import com.example.scholarplay.ui.homepage.teacher.recyclerview.TeacherClassRoomAdapter
 import com.example.scholarplay.ui.homepage.teacher.viewmodel.TeacherHomeViewModel
+import com.example.scholarplay.ui.levelmenu.student.viewmodel.LevelMenuViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class TeacherHomeFragment : Fragment() {
+class TeacherHomeFragment : Fragment(), TeacherClassRoomAdapter.OnItemClickListener {
 
     private val teacherHomeViewModel: TeacherHomeViewModel by activityViewModels{
         TeacherHomeViewModel.Factory
+    }
+
+    private val levelMenuViewModel : LevelMenuViewModel by activityViewModels {
+        LevelMenuViewModel.Factory
     }
 
     private lateinit var binding: FragmentTeacherHomeBinding
@@ -51,7 +58,7 @@ class TeacherHomeFragment : Fragment() {
 
         rv.layoutManager = GridLayoutManager(context, 2)
 
-        val adapter = TeacherClassRoomAdapter(TeacherClassRoomAdapter.ClassRoomComparator)
+        val adapter = TeacherClassRoomAdapter(TeacherClassRoomAdapter.ClassRoomComparator, this)
 
         val userValue = app.getId()
 
@@ -75,4 +82,10 @@ class TeacherHomeFragment : Fragment() {
 
 
     }
+
+    override fun onItemClick(ClassRoom: ClassModel) {
+        levelMenuViewModel.setSelectedClass(ClassRoom)
+        findNavController().navigate(R.id.action_teacherHomeFragment2_to_teacherLevelMenuFragment)
+    }
 }
+

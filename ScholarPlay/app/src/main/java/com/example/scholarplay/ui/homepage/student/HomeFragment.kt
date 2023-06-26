@@ -10,21 +10,27 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.scholarplay.R
 import com.example.scholarplay.ScholarPlayApplication
+import com.example.scholarplay.data.models.ClassModel
 import com.example.scholarplay.databinding.FragmentHomeBinding
 import com.example.scholarplay.ui.homepage.student.recyclerview.StudentClassRoomAdapter
 import com.example.scholarplay.ui.homepage.student.viewmodel.StudentHomeViewModel
+import com.example.scholarplay.ui.levelmenu.student.viewmodel.LevelMenuViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), StudentClassRoomAdapter.OnItemClickListener {
 
     private val studentHomeViewModel: StudentHomeViewModel by activityViewModels {
         StudentHomeViewModel.Factory
+    }
+
+    private val levelMenuViewModel : LevelMenuViewModel by activityViewModels {
+        LevelMenuViewModel.Factory
     }
 
     private lateinit var binding: FragmentHomeBinding
@@ -33,22 +39,22 @@ class HomeFragment : Fragment() {
         requireActivity().application as ScholarPlayApplication
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(inflater,container,false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val rv = binding.recyclerviewClasses
 
-        rv.layoutManager = GridLayoutManager(context,2)
+        rv.layoutManager = GridLayoutManager(context, 2)
 
-        val adapter = StudentClassRoomAdapter(StudentClassRoomAdapter.ClassRoomComparator)
+        val adapter = StudentClassRoomAdapter(StudentClassRoomAdapter.ClassRoomComparator, this)
 
         val userValue = app.getId()
 
@@ -70,26 +76,13 @@ class HomeFragment : Fragment() {
 
         rv.adapter = adapter
 
-
         binding.floatingActionButton.setOnClickListener {
-
             it.findNavController().navigate(R.id.action_homeFragment_to_joinAClassFragment)
         }
-
-
-
-
-
-
-
-
     }
 
-
-
-
-
-
-
-
+    override fun onItemClick(classRoom: ClassModel) {
+        levelMenuViewModel.setSelectedClass(classRoom)
+        findNavController().navigate(R.id.action_homeFragment_to_levelMenuFragment)
+    }
 }

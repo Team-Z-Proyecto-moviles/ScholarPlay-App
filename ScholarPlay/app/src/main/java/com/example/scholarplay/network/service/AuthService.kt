@@ -5,6 +5,7 @@ import com.example.scholarplay.network.dto.classroom.ClassRoomRequest
 import com.example.scholarplay.network.dto.classroom.ClassRoomResponse
 import com.example.scholarplay.network.dto.join.JoinRequest
 import com.example.scholarplay.network.dto.join.JoinResponse
+import com.example.scholarplay.network.dto.level.LevelResponse
 import com.example.scholarplay.network.dto.login.LoginRequest
 import com.example.scholarplay.network.dto.login.LoginResponse
 import com.example.scholarplay.network.dto.register.RegisterRequest
@@ -36,6 +37,10 @@ interface AuthService {
     @GET("api/classroom/students/classrooms/plusname/teacher/{user}")
     suspend fun getClassRoom(
         @Path("user") user: String, @Query("limit") limit: Int, @Query("offset") offset: Int): ClassRoomResponse
+
+    @GET("api/homework/found/{classroom}")
+    suspend fun getLevels(
+        @Path("classroom") classRoom: String, @Query("limit") limit: Int, @Query("offset") offset: Int) : LevelResponse
 
     @POST("api/classroom/add-student/code/classroom")
     suspend fun joinClassRoom(@Body credentials: JoinRequest): JoinResponse
