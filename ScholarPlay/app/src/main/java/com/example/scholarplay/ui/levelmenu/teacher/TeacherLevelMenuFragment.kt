@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.scholarplay.R
@@ -38,6 +39,10 @@ class TeacherLevelMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.newLevelActionButtom.setOnClickListener {
+            findNavController().navigate(R.id.action_teacherLevelMenuFragment_to_newLevelFragment)
+        }
+
         val rv = binding.levelRecyclerView
 
         rv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true)
@@ -64,6 +69,8 @@ class TeacherLevelMenuFragment : Fragment() {
         }
 
         rv.adapter = adapter
+
+
 
     }
 

@@ -47,6 +47,7 @@ interface AuthService {
 
     @POST("api/classroom")
     suspend fun createClassRoom(@Body credentials: ClassRoomRequest)
+    
 
     @PUT("api/student/identifier/updateImage/{user}")
     suspend fun updateAvatar(@Path("user") user: String, @Body credentials: AvatarRequest)

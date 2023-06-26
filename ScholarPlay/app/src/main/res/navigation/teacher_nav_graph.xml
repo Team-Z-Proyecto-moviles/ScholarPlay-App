@@ -64,5 +64,14 @@
     <fragment
         android:id="@+id/teacherLevelMenuFragment"
         android:name="com.example.scholarplay.ui.levelmenu.teacher.TeacherLevelMenuFragment"
-        android:label="TeacherLevelMenuFragment" />
+        android:label="TeacherLevelMenuFragment" >
+        <action
+            android:id="@+id/action_teacherLevelMenuFragment_to_newLevelFragment"
+            app:destination="@id/newLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newLevelFragment"
+        android:name="com.example.scholarplay.ui.newlevel.NewLevelFragment"
+        android:label="fragment_new_level"
+        tools:layout="@layout/fragment_new_level" />
 </navigation>
