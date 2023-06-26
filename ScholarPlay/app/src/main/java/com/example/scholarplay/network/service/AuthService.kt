@@ -5,6 +5,7 @@ import com.example.scholarplay.network.dto.classroom.ClassRoomRequest
 import com.example.scholarplay.network.dto.classroom.ClassRoomResponse
 import com.example.scholarplay.network.dto.join.JoinRequest
 import com.example.scholarplay.network.dto.join.JoinResponse
+import com.example.scholarplay.network.dto.level.LevelRequest
 import com.example.scholarplay.network.dto.level.LevelResponse
 import com.example.scholarplay.network.dto.login.LoginRequest
 import com.example.scholarplay.network.dto.login.LoginResponse
@@ -47,7 +48,9 @@ interface AuthService {
 
     @POST("api/classroom")
     suspend fun createClassRoom(@Body credentials: ClassRoomRequest)
-    
+
+    @POST("api/homework")
+    suspend fun createLevel(@Body credentials: LevelRequest)
 
     @PUT("api/student/identifier/updateImage/{user}")
     suspend fun updateAvatar(@Path("user") user: String, @Body credentials: AvatarRequest)

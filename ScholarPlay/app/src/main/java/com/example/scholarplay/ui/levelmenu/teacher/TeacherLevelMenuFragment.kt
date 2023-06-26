@@ -17,6 +17,7 @@ import com.example.scholarplay.databinding.FragmentTeacherLevelMenuBinding
 import com.example.scholarplay.ui.levelmenu.student.recyclerview.LevelMenuAdapter
 import com.example.scholarplay.ui.levelmenu.student.recyclerview.ZigZagItemDecoration
 import com.example.scholarplay.ui.levelmenu.student.viewmodel.LevelMenuViewModel
+import com.example.scholarplay.ui.newlevel.viewmodel.NewLevelViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -24,6 +25,10 @@ class TeacherLevelMenuFragment : Fragment() {
 
     private val levelMenuViewModel: LevelMenuViewModel by activityViewModels {
         LevelMenuViewModel.Factory
+    }
+
+    private val newLevelViewModel : NewLevelViewModel by activityViewModels {
+        NewLevelViewModel.Factory
     }
 
     private lateinit var binding: FragmentTeacherLevelMenuBinding
@@ -40,6 +45,10 @@ class TeacherLevelMenuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.newLevelActionButtom.setOnClickListener {
+
+            levelMenuViewModel.classRoom.observe(viewLifecycleOwner){
+                newLevelViewModel.getClassRoom(it.id)
+            }
             findNavController().navigate(R.id.action_teacherLevelMenuFragment_to_newLevelFragment)
         }
 
