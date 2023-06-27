@@ -5,17 +5,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.scholarplay.R
+import com.example.scholarplay.databinding.FragmentNewLevelBinding
+import com.example.scholarplay.ui.newlevel.viewmodel.NewLevelViewModel
 
 class NewLevelFragment : Fragment() {
+
+    private val newLevelViewModel: NewLevelViewModel by activityViewModels {
+        NewLevelViewModel.Factory
+    }
+
+    private lateinit var binding: FragmentNewLevelBinding
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_level, container, false)
+        binding = FragmentNewLevelBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setViewModel()
+        binding.button2.setOnClickListener {
+            newLevelViewModel.onNewLevel()
+            findNavController().navigate(R.id.action_newLevelFragment_to_teacherLevelMenuFragment)
+        }
+    }
+
+    private fun setViewModel(){
+        binding.viewmodel = newLevelViewModel
     }
 
 

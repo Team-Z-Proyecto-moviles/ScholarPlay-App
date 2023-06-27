@@ -6,6 +6,7 @@ import com.example.scholarplay.ScholarPlayApplication
 import com.example.scholarplay.network.ClassRoomPagingSource
 import com.example.scholarplay.network.LevelPagingSource
 import com.example.scholarplay.network.dto.classroom.ClassRoomRequest
+import com.example.scholarplay.network.dto.level.LevelRequest
 import com.example.scholarplay.network.service.AuthService
 
 class ClassRoomRepository(private val api: AuthService) {
@@ -19,6 +20,9 @@ class ClassRoomRepository(private val api: AuthService) {
 
     suspend fun createClassRoom(name: String, teacher: String, image : String, section: String) =
         api.createClassRoom(ClassRoomRequest(name, teacher, image, section))
+
+    suspend fun  createLevel(name: String, classRoom: String) =
+        api.createLevel(LevelRequest(name, classRoom))
 
     fun getClassRoomPage(pageSize: Int, user: String) = Pager(
         PagingConfig(pageSize)
