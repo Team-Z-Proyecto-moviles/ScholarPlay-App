@@ -11,15 +11,35 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.scholarplay.R
 import com.example.scholarplay.data.models.LevelModel
 
-class LevelMenuAdapter(differCallback: DiffUtil.ItemCallback<LevelModel>):
-    PagingDataAdapter<LevelModel, LevelMenuAdapter.LevelMenuViewHolder>(differCallback){
+class LevelMenuAdapter(
+    differCallback: DiffUtil.ItemCallback<LevelModel>,
+    private val listener: OnItemClickListener
+): PagingDataAdapter<LevelModel, LevelMenuAdapter.LevelMenuViewHolder>(differCallback){
 
-        class LevelMenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    interface OnItemClickListener {
+        fun OnItemClick(Level: LevelModel)
+    }
+
+      inner class LevelMenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
             private val levelNumber: TextView = itemView.findViewById(R.id.level_number_text_view)
 
             fun bind(Level : LevelModel?, position: Int ){
                 levelNumber.text = (position+1).toString()
             }
+
+          init {
+              itemView.setOnClickListener {
+                  val position = bindingAdapterPosition
+                  if (position != RecyclerView.NO_POSITION){
+                      val level = getItem(position)
+                      level?.let {
+                          listener.OnItemClick(it)
+                      }
+                  }
+              }
+          }
+
+
 
 
         }

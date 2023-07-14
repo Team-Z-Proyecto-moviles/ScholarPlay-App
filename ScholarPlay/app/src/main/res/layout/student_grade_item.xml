@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/small_gap">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/student_grade_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:cardBackgroundColor="@color/bluegray">
+        <LinearLayout
+            android:paddingVertical="@dimen/small_gap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/medium_gap">
+
+            <ImageView
+                android:id="@+id/avatar_image_view"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/gasparin"
+                android:layout_marginHorizontal="@dimen/big_gap"/>
+
+            <TextView
+                android:id="@+id/student_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Alberto Diaz"
+                android:textSize="20sp"
+                android:fontFamily="@font/urbanist_medium"/>
+
+            <LinearLayout
+                android:id="@+id/graded_check_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0"
+                android:layout_marginEnd="@dimen/big_gap"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/outline_check_24"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Graded"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:layout_marginHorizontal="@dimen/medium_gap"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

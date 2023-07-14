@@ -26,9 +26,7 @@ class LevelMenuViewModel(private val repository: ClassRoomRepository): ViewModel
         }
 
 
-    /*fun onGetLevels(classroom: String){
-        getLevels(classRoom.value?.id!!)
-    }*/
+
 
 
     fun setSelectedClass( selectedClass: ClassModel){

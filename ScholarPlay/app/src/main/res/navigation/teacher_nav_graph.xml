@@ -68,6 +68,9 @@
         <action
             android:id="@+id/action_teacherLevelMenuFragment_to_newLevelFragment"
             app:destination="@id/newLevelFragment" />
+        <action
+            android:id="@+id/action_teacherLevelMenuFragment_to_gradeLevelFragment"
+            app:destination="@id/gradeLevelFragment" />
     </fragment>
     <fragment
         android:id="@+id/newLevelFragment"
@@ -76,6 +79,15 @@
         tools:layout="@layout/fragment_new_level" >
         <action
             android:id="@+id/action_newLevelFragment_to_teacherLevelMenuFragment"
+            app:destination="@id/teacherLevelMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gradeLevelFragment"
+        android:name="com.example.scholarplay.ui.gradelevel.GradeLevelFragment"
+        android:label="fragment_grade_level"
+        tools:layout="@layout/fragment_grade_level" >
+        <action
+            android:id="@+id/action_gradeLevelFragment_to_teacherLevelMenuFragment"
             app:destination="@id/teacherLevelMenuFragment" />
     </fragment>
 </navigation>
