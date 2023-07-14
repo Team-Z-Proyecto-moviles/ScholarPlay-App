@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.scholarplay.ui.login.viewmodel.LoginViewmodel" />
+            type="com.scholar.scholarplay.ui.login.viewmodel.LoginViewmodel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

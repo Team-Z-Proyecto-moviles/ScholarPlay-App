@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace 'com.example.scholarplay'
+    namespace 'com.scholar.scholarplay'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.scholarplay"
+        applicationId "com.scholar.scholarplay"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment3">
     <fragment
         android:id="@+id/loginFragment3"
-        android:name="com.example.scholarplay.ui.login.LoginFragment"
+        android:name="com.scholar.scholarplay.ui.login.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment3_to_registerFragment"
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.scholarplay.ui.register.RegisterFragment"
+        android:name="com.scholar.scholarplay.ui.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -37,10 +37,10 @@
     </fragment>
     <activity
         android:id="@+id/studentActivity2"
-        android:name="com.example.scholarplay.ui.StudentActivity"
+        android:name="com.scholar.scholarplay.ui.StudentActivity"
         android:label="StudentActivity" />
     <activity
         android:id="@+id/teacherActivity"
-        android:name="com.example.scholarplay.ui.TeacherActivity"
+        android:name="com.scholar.scholarplay.ui.TeacherActivity"
         android:label="TeacherActivity" />
 </navigation>

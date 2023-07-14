@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.scholarplay.ui.homepage.student.HomeFragment"
+        android:name="com.scholar.scholarplay.ui.homepage.student.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_joinAClassFragment"
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.scholarplay.ui.profile.ProfileFragment"
+        android:name="com.scholar.scholarplay.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -31,12 +31,12 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.scholarplay.ui.settings.SettingsFragment"
+        android:name="com.scholar.scholarplay.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/joinAClassFragment"
-        android:name="com.example.scholarplay.ui.joinclass.JoinAClassFragment"
+        android:name="com.scholar.scholarplay.ui.joinclass.JoinAClassFragment"
         android:label="JoinAClassFragment" >
         <action
             android:id="@+id/action_joinAClassFragment_to_homeFragment"
@@ -45,7 +45,7 @@
     <include app:graph="@navigation/nav_graph" />
     <fragment
         android:id="@+id/updateProfileFragment"
-        android:name="com.example.scholarplay.ui.updateprofile.UpdateProfileFragment"
+        android:name="com.scholar.scholarplay.ui.updateprofile.UpdateProfileFragment"
         android:label="fragment_update_profile"
         tools:layout="@layout/fragment_update_profile" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/avatarFragment"
-        android:name="com.example.scholarplay.ui.avatar.AvatarFragment"
+        android:name="com.scholar.scholarplay.ui.avatar.AvatarFragment"
         android:label="AvatarFragment" >
         <action
             android:id="@+id/action_avatarFragment_to_profileFragment"
@@ -65,6 +65,6 @@
     </fragment>
     <fragment
         android:id="@+id/levelMenuFragment"
-        android:name="com.example.scholarplay.ui.levelmenu.student.LevelMenuFragment"
+        android:name="com.scholar.scholarplay.ui.levelmenu.student.LevelMenuFragment"
         android:label="LevelMenuFragment" />
 </navigation>

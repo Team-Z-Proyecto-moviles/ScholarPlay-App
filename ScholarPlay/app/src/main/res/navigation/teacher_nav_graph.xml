@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/teacherHomeFragment2"
-        android:name="com.example.scholarplay.ui.homepage.teacher.TeacherHomeFragment"
+        android:name="com.scholar.scholarplay.ui.homepage.teacher.TeacherHomeFragment"
         android:label="TeacherHomeFragment" >
         <action
             android:id="@+id/action_teacherHomeFragment2_to_createAClassFragment"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.scholarplay.ui.profile.ProfileFragment"
+        android:name="com.scholar.scholarplay.ui.profile.ProfileFragment"
         android:label="ProfileFragment" >
         <action
             android:id="@+id/action_profileFragment_to_nav_graph"
@@ -29,13 +29,13 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment2"
-        android:name="com.example.scholarplay.ui.settings.SettingsFragment"
+        android:name="com.scholar.scholarplay.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <include app:graph="@navigation/nav_graph" />
     <fragment
         android:id="@+id/createAClassFragment"
-        android:name="com.example.scholarplay.ui.createclass.CreateAClassFragment"
+        android:name="com.scholar.scholarplay.ui.createclass.CreateAClassFragment"
         android:label="CreateAClassFragment" >
         <action
             android:id="@+id/action_createAClassFragment_to_teacherHomeFragment2"
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateProfileFragment2"
-        android:name="com.example.scholarplay.ui.updateprofile.UpdateProfileFragment"
+        android:name="com.scholar.scholarplay.ui.updateprofile.UpdateProfileFragment"
         android:label="fragment_update_profile"
         tools:layout="@layout/fragment_update_profile" >
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/teacherAvatarFragment"
-        android:name="com.example.scholarplay.ui.avatar.TeacherAvatarFragment"
+        android:name="com.scholar.scholarplay.ui.avatar.TeacherAvatarFragment"
         android:label="TeacherAvatarFragment" >
         <action
             android:id="@+id/action_teacherAvatarFragment_to_profileFragment"
@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/teacherLevelMenuFragment"
-        android:name="com.example.scholarplay.ui.levelmenu.teacher.TeacherLevelMenuFragment"
+        android:name="com.scholar.scholarplay.ui.levelmenu.teacher.TeacherLevelMenuFragment"
         android:label="TeacherLevelMenuFragment" >
         <action
             android:id="@+id/action_teacherLevelMenuFragment_to_newLevelFragment"
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/newLevelFragment"
-        android:name="com.example.scholarplay.ui.newlevel.NewLevelFragment"
+        android:name="com.scholar.scholarplay.ui.newlevel.NewLevelFragment"
         android:label="fragment_new_level"
         tools:layout="@layout/fragment_new_level" >
         <action
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/gradeLevelFragment"
-        android:name="com.example.scholarplay.ui.gradelevel.GradeLevelFragment"
+        android:name="com.scholar.scholarplay.ui.gradelevel.GradeLevelFragment"
         android:label="fragment_grade_level"
         tools:layout="@layout/fragment_grade_level" >
         <action
