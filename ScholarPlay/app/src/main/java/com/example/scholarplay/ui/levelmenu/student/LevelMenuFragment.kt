@@ -12,20 +12,32 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.scholarplay.R
+import com.example.scholarplay.ScholarPlayApplication
+import com.example.scholarplay.data.models.LevelModel
 import com.example.scholarplay.databinding.FragmentLevelMenuBinding
+import com.example.scholarplay.ui.createclass.WallpaperPopUp
 import com.example.scholarplay.ui.levelmenu.student.recyclerview.LevelMenuAdapter
 import com.example.scholarplay.ui.levelmenu.student.recyclerview.ZigZagItemDecoration
 import com.example.scholarplay.ui.levelmenu.student.viewmodel.LevelMenuViewModel
+import com.example.scholarplay.ui.levelscore.LevelScorePopUp
+import com.example.scholarplay.ui.levelscore.LevelScoreViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class LevelMenuFragment : Fragment() {
+class LevelMenuFragment : Fragment(), LevelMenuAdapter.OnItemClickListener {
 
     private val levelMenuViewModel : LevelMenuViewModel by activityViewModels {
         LevelMenuViewModel.Factory
     }
+    private val levelScoreViewModel: LevelScoreViewModel by activityViewModels {
+        LevelScoreViewModel.Factory
+    }
 
     private lateinit var binding: FragmentLevelMenuBinding
+
+    val app by lazy {
+        requireActivity().application as ScholarPlayApplication
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +57,7 @@ class LevelMenuFragment : Fragment() {
 
         rv.addItemDecoration(ZigZagItemDecoration())
 
-        val adapter = LevelMenuAdapter(LevelMenuAdapter.LevelComparator)
+        val adapter = LevelMenuAdapter(LevelMenuAdapter.LevelComparator, this)
 
 
 
@@ -74,6 +86,11 @@ class LevelMenuFragment : Fragment() {
 
     }
 
+    override fun OnItemClick(Level: LevelModel) {
+        levelScoreViewModel.setSelectedClass(Level)
+        LevelScorePopUp().show(childFragmentManager,"scorePopUp")
+
+    }
 
 
 }

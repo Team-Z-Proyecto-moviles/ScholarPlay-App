@@ -29,6 +29,9 @@
     <string name="select_label">Select</string>
     <string name="edu_coins_label">Edu-coins</string>
     <string name="edit_profile_label">Edit profile</string>
+    <string name="task_name_label">Task name</string>
+    <string name="score_task_label">Score</string>
+    <string name="level_label">Level</string>
 
     <string-array name="ocuupations_arrat">
         <item>Student</item>
