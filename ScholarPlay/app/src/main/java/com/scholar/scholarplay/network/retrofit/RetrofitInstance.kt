@@ -4,7 +4,7 @@ import com.scholar.scholarplay.network.service.AuthService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "https://scholarplay.onrender.com/"
+const val BASE_URL = "https://dufferx.me/"
 
 
 object RetrofitInstance {
