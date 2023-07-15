@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/student_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.scholar.scholarplay.ui.homepage.student.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_joinAClassFragment"
+            app:destination="@id/joinAClassFragment"
+            app:enterAnim="@anim/slide_in_up" />
+        <action
+            android:id="@+id/action_homeFragment_to_levelMenuFragment"
+            app:destination="@id/levelMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.scholar.scholarplay.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_nav_graph"
+            app:destination="@id/nav_graph" />
+        <action
+            android:id="@+id/action_profileFragment_to_updateProfileFragment"
+            app:destination="@id/updateProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.scholar.scholarplay.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/joinAClassFragment"
+        android:name="com.scholar.scholarplay.ui.joinclass.JoinAClassFragment"
+        android:label="JoinAClassFragment" >
+        <action
+            android:id="@+id/action_joinAClassFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <include app:graph="@navigation/nav_graph" />
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="com.scholar.scholarplay.ui.updateprofile.UpdateProfileFragment"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" >
+        <action
+            android:id="@+id/action_updateProfileFragment_to_avatarFragment"
+            app:destination="@id/avatarFragment" />
+        <action
+            android:id="@+id/action_updateProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/avatarFragment"
+        android:name="com.scholar.scholarplay.ui.avatar.AvatarFragment"
+        android:label="AvatarFragment" >
+        <action
+            android:id="@+id/action_avatarFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/levelMenuFragment"
+        android:name="com.scholar.scholarplay.ui.levelmenu.student.LevelMenuFragment"
+        android:label="LevelMenuFragment" />
+</navigation>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/medium_gap">
+
+    <TextView
+        android:layout_marginBottom="@dimen/medium_gap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_a_wallpaper_label"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/medium_gap"
+        android:fontFamily="@font/urbanist_bold"
+        android:textSize="24sp">
+
+    </TextView>
+    
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:id="@+id/wallpaper_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:text="math_wallpaper.png"
+                android:textColor="@android:color/transparent"
+                android:id="@+id/math_wallpaper"
+                android:background="@drawable/custom_radio_selector"
+                android:layout_marginEnd="@dimen/medium_gap"
+                android:drawableTop="@drawable/math_wallpaper"
+                android:button="@android:color/transparent"
+                android:layout_width="352dp"
+                android:layout_height="244dp">
+
+            </RadioButton>
+            <RadioButton
+                android:text="sciene_wallpaper.png"
+                android:textColor="@android:color/transparent"
+                android:id="@+id/science_wallpaper"
+                android:background="@drawable/custom_radio_selector"
+                android:layout_marginEnd="@dimen/medium_gap"
+                android:drawableTop="@drawable/sciene_wallpaper"
+                android:button="@android:color/transparent"
+                android:layout_width="352dp"
+                android:layout_height="244dp">
+            </RadioButton>
+
+            <RadioButton
+                android:text="code_wallpaper.png"
+                android:textColor="@android:color/transparent"
+                android:id="@+id/code_wallpaper"
+                android:background="@drawable/custom_radio_selector"
+                android:layout_marginEnd="@dimen/medium_gap"
+                android:drawableTop="@drawable/code_wallpaper"
+                android:button="@android:color/transparent"
+                android:layout_width="352dp"
+                android:layout_height="244dp">
+            </RadioButton>
+
+            <RadioButton
+                android:text="geography_wallpaper.png"
+                android:textColor="@android:color/transparent"
+                android:id="@+id/geography_wallpaper"
+                android:background="@drawable/custom_radio_selector"
+                android:layout_marginEnd="@dimen/medium_gap"
+                android:drawableTop="@drawable/geography_wallpaper"
+                android:button="@android:color/transparent"
+                android:layout_width="352dp"
+                android:layout_height="244dp">
+            </RadioButton>
+            <RadioButton
+                android:text="chemestry_wallpaper.png"
+                android:textColor="@android:color/transparent"
+                android:id="@+id/chemistry_wallpaper"
+                android:background="@drawable/custom_radio_selector"
+                android:layout_marginEnd="@dimen/medium_gap"
+                android:drawableTop="@drawable/chemestry_wallpaper"
+                android:button="@android:color/transparent"
+                android:layout_width="352dp"
+                android:layout_height="244dp">
+            </RadioButton>
+          <!--  <RadioButton
+                android:background="@drawable/custom_radio_selector"
+
+                android:layout_marginEnd="@dimen/medium_gap"
+                android:drawableTop="@drawable/english_wallpaper"
+                android:button="@android:color/transparent"
+                android:layout_width="332dp"
+                android:layout_height="228dp">
+            </RadioButton>-->
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    
+
+    <Button
+        android:id="@+id/join_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/button_background_selector"
+        android:fontFamily="@font/urbanist_bold"
+        android:text="Add"
+        android:textColor="@color/white">
+
+    </Button>
+
+
+
+
+</LinearLayout>
+
+</layout>

@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">ScholarPlay</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_greeting">Hey there! welcome to ScholarPlay</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="forgot_password_label">Forgot password?</string>
+    <string name="login_label">Login</string>
+    <string name="register_instruction">Create an account to get started!</string>
+    <string name="name_label">Name</string>
+    <string name="occupation_question">What will you be using ScholarPlay for?</string>
+    <string name="register_label">Register</string>
+    <string name="create_account_label">Already have an account? Login now</string>
+    <string name="confirm_password_label">Confirm password</string>
+    <string name="student_label">Student</string>
+    <string name="teacher_label">Teacher</string>
+    <string name="join_a_class_label">Join a Class</string>
+    <string name="warning_joinclass">Your teacher must provide you the code to join the class</string>
+    <string name="enter_code_label">Enter the class code</string>
+    <string name="class_code_label">Class code</string>
+    <string name="join_label">Join</string>
+    <string name="create_a_new_class_label">Create a new class</string>
+    <string name="classname_label">Classname</string>
+    <string name="section_label">Section</string>
+    <string name="class_wallpaper_label">Class wallpaper</string>
+    <string name="select_a_wallpaper_label">Select a wallpaper</string>
+    <string name="select_an_avatar_label">Select an avatar</string>
+    <string name="select_label">Select</string>
+    <string name="edu_coins_label">Edu-coins</string>
+    <string name="edit_profile_label">Edit profile</string>
+    <string name="task_name_label">Task name</string>
+    <string name="score_task_label">Score</string>
+    <string name="level_label">Level</string>
+
+    <string-array name="ocuupations_arrat">
+        <item>Student</item>
+        <item>Teacher</item>
+    </string-array>
+</resources>

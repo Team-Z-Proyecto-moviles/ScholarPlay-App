@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.avatar.AvatarFragment"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_marginTop="@dimen/medium_gap"
+            android:layout_marginBottom="@dimen/medium_gap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_an_avatar_label"
+            android:layout_gravity="center"
+            android:fontFamily="@font/urbanist_bold"
+            android:textSize="32sp">
+
+        </TextView>
+
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            >
+
+            <GridLayout
+                android:useDefaultMargins="true"
+                android:id="@+id/gridLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:rowCount="5">
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:background="@drawable/custom_avatar_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pumpkin.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/pumpkin"
+                    />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:background="@drawable/custom_avatar_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dracula.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/dracula"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mummy.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/mummy"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dreads_kid.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/dreads_kid"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Happy_braces.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/happy_braces"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cat.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/cat"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wolf.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/wolf"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gasparin.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/gasparin"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Happy_Skull.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/happy_skull"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Blonde_rasta.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/blonde_rasta"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bold_friendly.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/bold_friendly"/>
+
+                <RadioButton
+                    android:background="@drawable/custom_avatar_selector"
+                    android:id="@+id/radioButton12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hijab.png"
+                    android:textColor="@android:color/transparent"
+                    android:button="@android:color/transparent"
+                    android:drawableTop="@drawable/hijab"/>
+
+            </GridLayout>
+
+        </RadioGroup>
+
+        <Button
+            android:enabled="false"
+            android:id="@+id/select_button"
+            android:layout_marginTop="@dimen/small_gap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/select_label"
+            android:fontFamily="@font/urbanist_semibold"
+            android:background="@drawable/button_background_selector"/>
+
+
+
+    </LinearLayout>
+
+</layout>

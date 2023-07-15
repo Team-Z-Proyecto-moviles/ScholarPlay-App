@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teacher_nav_graph"
+    app:startDestination="@id/teacherHomeFragment2">
+
+    <fragment
+        android:id="@+id/teacherHomeFragment2"
+        android:name="com.scholar.scholarplay.ui.homepage.teacher.TeacherHomeFragment"
+        android:label="TeacherHomeFragment" >
+        <action
+            android:id="@+id/action_teacherHomeFragment2_to_createAClassFragment"
+            app:destination="@id/createAClassFragment" />
+        <action
+            android:id="@+id/action_teacherHomeFragment2_to_teacherLevelMenuFragment"
+            app:destination="@id/teacherLevelMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.scholar.scholarplay.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_nav_graph"
+            app:destination="@id/nav_graph" />
+        <action
+            android:id="@+id/action_profileFragment_to_updateProfileFragment"
+            app:destination="@id/updateProfileFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="com.scholar.scholarplay.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <include app:graph="@navigation/nav_graph" />
+    <fragment
+        android:id="@+id/createAClassFragment"
+        android:name="com.scholar.scholarplay.ui.createclass.CreateAClassFragment"
+        android:label="CreateAClassFragment" >
+        <action
+            android:id="@+id/action_createAClassFragment_to_teacherHomeFragment2"
+            app:destination="@id/teacherHomeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateProfileFragment2"
+        android:name="com.scholar.scholarplay.ui.updateprofile.UpdateProfileFragment"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" >
+        <action
+            android:id="@+id/action_updateProfileFragment2_to_teacherAvatarFragment"
+            app:destination="@id/teacherAvatarFragment" />
+        <action
+            android:id="@+id/action_updateProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherAvatarFragment"
+        android:name="com.scholar.scholarplay.ui.avatar.TeacherAvatarFragment"
+        android:label="TeacherAvatarFragment" >
+        <action
+            android:id="@+id/action_teacherAvatarFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherLevelMenuFragment"
+        android:name="com.scholar.scholarplay.ui.levelmenu.teacher.TeacherLevelMenuFragment"
+        android:label="TeacherLevelMenuFragment" >
+        <action
+            android:id="@+id/action_teacherLevelMenuFragment_to_newLevelFragment"
+            app:destination="@id/newLevelFragment" />
+        <action
+            android:id="@+id/action_teacherLevelMenuFragment_to_gradeLevelFragment"
+            app:destination="@id/gradeLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newLevelFragment"
+        android:name="com.scholar.scholarplay.ui.newlevel.NewLevelFragment"
+        android:label="fragment_new_level"
+        tools:layout="@layout/fragment_new_level" >
+        <action
+            android:id="@+id/action_newLevelFragment_to_teacherLevelMenuFragment"
+            app:destination="@id/teacherLevelMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gradeLevelFragment"
+        android:name="com.scholar.scholarplay.ui.gradelevel.GradeLevelFragment"
+        android:label="fragment_grade_level"
+        tools:layout="@layout/fragment_grade_level" >
+        <action
+            android:id="@+id/action_gradeLevelFragment_to_teacherLevelMenuFragment"
+            app:destination="@id/teacherLevelMenuFragment" />
+    </fragment>
+</navigation>
